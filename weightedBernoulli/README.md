@@ -23,7 +23,7 @@ Requires **R 4.1.0 or later**. Runtime dependencies are limited to the standard 
 
 ### From GitHub
 
-After this folder has been uploaded to the repository `arun-kuchibhotla/weightedBernoulli`, install it with:
+Install directly from GitHub::
 
 ```r
 install.packages("remotes")  # Once, if needed.
