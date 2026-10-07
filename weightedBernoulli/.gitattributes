@@ -1,0 +1,7 @@
+* text=auto
+*.R text eol=lf
+*.Rd text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.tex text eol=lf
+*.pdf binary

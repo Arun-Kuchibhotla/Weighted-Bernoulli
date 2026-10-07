@@ -1,0 +1,11 @@
+^\.github$
+^\.git$
+^\.gitignore$
+^\.gitattributes$
+^LICENSE\.md$
+^docs$
+^tools$
+^weightedBernoulli\.Rproj$
+^.*\.Rcheck$
+^weightedBernoulli_[0-9].*\.tar\.gz$
+^weightedBernoulli-github\.zip$

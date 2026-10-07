@@ -1,0 +1,16 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rcheck/
+*.tar.gz
+*.zip
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+reproduced-results/
+validation-results/
+.DS_Store
+Thumbs.db

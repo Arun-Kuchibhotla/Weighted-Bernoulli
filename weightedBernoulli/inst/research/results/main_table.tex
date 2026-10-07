@@ -1,0 +1,20 @@
+\begin{tabular}{lrrrll}
+\toprule
+Setting & $B$ & Reference & Returned & Exact & Selected engine \\
+\midrule
+Square roots, 25 & 25 & -- & 57.664 & Yes & MITM \\
+Square roots, 26 & 26 & -- & 60.798 & No & Grid \\
+Equal, fair & 100 & 58.000 & 58.000 & Yes & Binomial \\
+Ranks, fair & 100 & 3004.000 & 3004.000 & Yes & Ranks \\
+60 + 39 unit weights & 40 & 83.000 & 83.000 & Yes & Count classes \\
+Lattice, unequal probabilities & 80 & 237.000 & 237.000 & Yes & Lattice DP \\
+Two repeated real weights & 600 & 476.296 & 476.296 & Yes & Count classes \\
+Square roots, 100 & 100 & -- & 394.316 & No & Grid \\
+Near equal, fair & 100 & 58.096 & 58.124 & No & Grid \\
+Spread weights, fair & 100 & 58.571 & 58.598 & No & Grid \\
+Near equal, success 0.1 & 100 & 15.053 & 15.060 & No & Grid \\
+Harmonic, fair & 100 & -- & 3.618 & No & Grid \\
+Near equal, 1000 & 1000 & -- & 526.094 & No & Conditional MGF \\
+Square roots, unequal probabilities & 80 & -- & 293.254 & No & Grid \\
+\bottomrule
+\end{tabular}

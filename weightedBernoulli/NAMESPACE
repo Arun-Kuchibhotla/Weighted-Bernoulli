@@ -1,0 +1,2 @@
+export(qweighted_bernoulli)
+importFrom(utils,tail)

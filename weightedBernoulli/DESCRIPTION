@@ -1,0 +1,25 @@
+Package: weightedBernoulli
+Type: Package
+Title: Quantiles of Independent Weighted Bernoulli Sums
+Version: 0.1.0
+Authors@R: person("Arun Kumar", "Kuchibhotla",
+    email = "arunku@stat.cmu.edu", role = c("aut", "cre"))
+Description: Computes exact finite-distribution quantiles and conservative
+    upper quantile bounds for sums of independent Bernoulli random variables
+    with nonnegative weights and possibly unequal success probabilities.
+    A single function recognizes binomial, repeated-class, rank, and lattice
+    structure, uses exact meet-in-the-middle computation for at most 25 active
+    summands by default, and otherwise returns the minimum of the applicable
+    numerical and concentration bounds within documented work limits. Methods
+    include upward grid rounding, binomial count aggregation, conditional
+    moment and moment-generating-function bounds, and Gaussian and binomial
+    comparisons. See Bentkus and Dzindzalieta (2015) <doi:10.3150/14-BEJ603>,
+    Pinelis (2012) <doi:10.1214/EJP.v17-2026>, and Montgomery-Smith (1990)
+    <doi:10.1090/S0002-9939-1990-1013975-0>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports:
+    stats,
+    utils
+NeedsCompilation: no

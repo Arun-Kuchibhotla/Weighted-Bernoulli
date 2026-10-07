@@ -1,0 +1,12 @@
+Main setting-level comparisons: 42
+Independent reference settings: 8
+Exact returned setting-level results: 18
+Conservative returned setting-level results: 24
+Individual candidate tail checks against reference laws: 261
+Every returned conservative result equaled the minimum available candidate.
+Every checked strict tail satisfied bound*(1+1e-10)+1e-15.
+All exact returned values agreed with available independent reference quantiles.
+Rational lattice references describe the mathematically specified weights; arithmetic is double precision.
+Timings use one call with three probability levels; they are runtime descriptions, not native R benchmarks.
+R version 4.6.0 (2026-04-24)
+Platform: wasm32-unknown-emscripten

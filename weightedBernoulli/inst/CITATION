@@ -1,0 +1,2 @@
+citHeader("To cite weightedBernoulli in publications, use:")
+citation(auto = meta)

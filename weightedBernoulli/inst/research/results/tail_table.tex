@@ -1,0 +1,16 @@
+\begin{tabular}{llrrrl}
+\toprule
+Setting & $\alpha$ & Reference & Returned & Actual tail/$\alpha$ & Engine \\
+\midrule
+Equal, fair & 0.05 & 58.000 & 58.000 & 0.886 & Binomial \\
+Equal, fair & $10^{-6}$ & 73.000 & 73.000 & 0.834 & Binomial \\
+60 + 39 unit weights & 0.05 & 83.000 & 83.000 & 0.998 & Count classes \\
+60 + 39 unit weights & $10^{-6}$ & 93.000 & 93.000 & 0.607 & Count classes \\
+Near equal, fair & 0.05 & 58.096 & 58.124 & 0.974 & Grid \\
+Near equal, fair & $10^{-6}$ & 73.160 & 73.195 & 0.935 & Grid \\
+Spread weights, fair & 0.05 & 58.571 & 58.598 & 0.989 & Grid \\
+Spread weights, fair & $10^{-6}$ & 74.222 & 74.256 & 0.966 & Grid \\
+Near equal, success 0.1 & 0.05 & 15.053 & 15.060 & 0.985 & Grid \\
+Near equal, success 0.1 & $10^{-6}$ & 26.914 & 26.928 & 0.971 & Grid \\
+\bottomrule
+\end{tabular}
