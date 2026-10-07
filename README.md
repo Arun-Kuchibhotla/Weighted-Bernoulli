@@ -335,34 +335,6 @@ The first command creates tables, plots, and its own `sessionInfo.txt`; the seco
 
 To rebuild the note, change to `inst/research` and run `pdflatex` twice on `weighted_bernoulli_quantiles.tex`; LaTeX is needed only for that optional documentation step.
 
-## Uploading to GitHub and developing
-
-1. Extract the ZIP to obtain the `weightedBernoulli` folder.
-2. Create a GitHub repository, for example `arun-kuchibhotla/weightedBernoulli`.
-3. Upload or commit the **contents** of the folder so that `DESCRIPTION`, `NAMESPACE`, `R/`, and `man/` are at the repository root. Include `.github/`, `.Rbuildignore`, `.gitignore`, and `.gitattributes`.
-4. Commit to `main` or `master`. The included GitHub Actions workflow runs `R CMD check` with release R on Linux, macOS, and Windows. Its first runs will occur in your repository.
-5. Use the GitHub installation command above, adjusted to the chosen repository name.
-
-For a local package check, run from the parent directory:
-
-```sh
-R CMD build weightedBernoulli
-R CMD check --no-manual weightedBernoulli_0.1.0.tar.gz
-```
-
-The package uses handwritten R help files and base-R tests, so contributing does not require `roxygen2` or `testthat`. Package conventions follow the official [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) manual; the workflow follows the [r-lib actions examples](https://github.com/r-lib/actions/tree/v2/examples).
-
-| Path | Purpose |
-|:--|:--|
-| `R/qweighted_bernoulli.R` | The one public function, with all computational helpers local to it. |
-| `DESCRIPTION`, `NAMESPACE` | Package metadata, runtime imports, and the single export. |
-| `man/` | Installed function and package help. |
-| `inst/doc/` | Installed mathematical note (PDF). |
-| `inst/research/` | LaTeX source, figures, tables, and reference results. |
-| `inst/examples/`, `inst/reproduce/` | Installed examples and comparison script. |
-| `tests/`, `tools/` | Regression checks and repository command-line runners. |
-| `.github/workflows/` | Checks on three operating systems. |
-| `docs/validation/` | Recorded validation of the supplied package. |
 
 ## References
 
