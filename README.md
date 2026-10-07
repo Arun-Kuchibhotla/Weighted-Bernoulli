@@ -2,7 +2,7 @@
 
 **Exact quantiles and conservative upper quantile bounds for sums of independent weighted Bernoulli random variables, through one R function.**
 
-For independent random variables $\xi_i \sim \operatorname{Bernoulli}(\pi_i)$, the package computes quantiles of
+For independent random variables $\xi_i \sim \mathrm{Bernoulli}(\pi_i)$, the package computes quantiles of
 
 $$
 G = \sum_{i=1}^{B} w_i \xi_i,
