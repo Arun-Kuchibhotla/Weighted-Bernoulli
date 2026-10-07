@@ -1,7 +1,7 @@
 Package: weightedBernoulli
 Type: Package
 Title: Quantiles of Independent Weighted Bernoulli Sums
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Arun Kumar", "Kuchibhotla",
     email = "arunku@stat.cmu.edu", role = c("aut", "cre"))
 Description: Computes exact finite-distribution quantiles and conservative
@@ -13,7 +13,11 @@ Description: Computes exact finite-distribution quantiles and conservative
     numerical and concentration bounds within documented work limits. Methods
     include upward grid rounding, binomial count aggregation, conditional
     moment and moment-generating-function bounds, and Gaussian and binomial
-    comparisons. See Bentkus and Dzindzalieta (2015) <doi:10.3150/14-BEJ603>,
+    comparisons. Optional exact randomization returns adjacent support
+    cutoffs, their mixing probabilities, and independent draws, including
+    the symmetric two-sided cutoff for fair Bernoulli sums. When exact
+    calibration is unavailable, a labeled conservative cutoff is returned.
+    See Bentkus and Dzindzalieta (2015) <doi:10.3150/14-BEJ603>,
     Pinelis (2012) <doi:10.1214/EJP.v17-2026>, and Montgomery-Smith (1990)
     <doi:10.1090/S0002-9939-1990-1013975-0>.
 License: MIT + file LICENSE

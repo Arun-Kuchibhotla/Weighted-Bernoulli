@@ -8,7 +8,7 @@ local({
   if (length(args) == 1L && args[1L] %in% c("-h", "--help")) {
     cat("Usage: Rscript tools/run-validation.R [output_directory]\n",
         "Install weightedBernoulli first. The optional directory receives ",
-        "unified_validation.csv.\n", sep = "")
+        "unified_validation.csv and randomized_validation.csv.\n", sep = "")
   } else {
     if (length(args) > 1L) {
       stop("Expected at most one argument: the validation output directory.")
@@ -20,9 +20,10 @@ local({
     }
     script_file <- normalizePath(sub("^--file=", "", script_arg),
                                  mustWork = TRUE)
-    test_file <- file.path(dirname(dirname(script_file)), "tests", "regression.R")
-    if (!file.exists(test_file)) {
-      stop("Cannot find tests/regression.R beside the tools directory.")
+    test_files <- file.path(dirname(dirname(script_file)), "tests",
+                            c("regression.R", "randomized.R"))
+    if (!all(file.exists(test_files))) {
+      stop("Cannot find both regression suites beside the tools directory.")
     }
     if (!requireNamespace("weightedBernoulli", quietly = TRUE)) {
       stop("Install weightedBernoulli before running its package validation suite.")
@@ -38,7 +39,8 @@ local({
     started <- proc.time()[["elapsed"]]
     tryCatch({
       Sys.setenv(WEIGHTEDBERNOULLI_VALIDATION_DIR = output_dir)
-      sys.source(test_file, envir = new.env(parent = globalenv()))
+      for (test_file in test_files)
+        sys.source(test_file, envir = new.env(parent = globalenv()))
     }, finally = {
       if (is.na(old_dir)) {
         Sys.unsetenv("WEIGHTEDBERNOULLI_VALIDATION_DIR")
@@ -48,6 +50,8 @@ local({
     })
     cat(sprintf("Elapsed time: %.2f seconds.\n", proc.time()[["elapsed"]] - started))
     cat("Validation report: ", file.path(output_dir, "unified_validation.csv"),
+        "\n", sep = "")
+    cat("Randomized report: ", file.path(output_dir, "randomized_validation.csv"),
         "\n", sep = "")
   }
 })

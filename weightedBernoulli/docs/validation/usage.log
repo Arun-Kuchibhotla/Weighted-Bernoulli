@@ -1,0 +1,106 @@
+  probability alpha c_minus c_plus       tau    P_minus     P_plus exact
+1        0.95  0.05      52     53 0.3297297 0.04844093 0.05316925  TRUE
+  degenerate probability_type     method
+1      FALSE            exact lattice_dp
+[1] 52
+  probability alpha c_minus c_plus tau P_minus P_plus exact degenerate
+1        0.25  0.75       0      1 0.5     0.5      1  TRUE      FALSE
+  probability_type   method
+1            exact binomial
+  probability alpha c_minus c_plus   tau P_minus P_plus exact degenerate
+1        0.95  0.05       6      7 0.375    0.08      0  TRUE      FALSE
+  probability_type         method
+1            exact upper_endpoint
+[1] 4 6 7
+[1]  53 105 157
+  probability quantile exact             method tail_bound log_tail_bound
+1        0.95 57.66373  TRUE meet_in_the_middle       0.05      -2.995732
+  grid_error
+1          0
+  probability quantile exact method tail_bound log_tail_bound grid_error
+1        0.95 60.79785 FALSE   grid       0.05      -2.995732 0.00499318
+  probability alpha  c_minus   c_plus tau P_minus P_plus exact degenerate
+1        0.95  0.05 26.93374 26.93374   1    0.05   0.05 FALSE       TRUE
+  probability_type            method
+1      upper_bound conservative_grid
+  probability quantile exact          method tail_bound log_tail_bound
+1        0.95       83  TRUE binomial_blocks       0.05      -2.995732
+  grid_error
+1          0
+[1] 526
+  probability quantile exact method tail_bound log_tail_bound grid_error
+1    0.950000 394.3164 FALSE   grid      5e-02      -2.995732  0.2089279
+2    0.990000 418.2969 FALSE   grid      1e-02      -4.605170  0.2089279
+3    0.999999 501.0234 FALSE   grid      1e-06     -13.815511  0.2089279
+                         method quantile selected
+43                         grid 394.3164     TRUE
+70        conditional_mgf_three 399.1570    FALSE
+67    conditional_moments_three 400.7512    FALSE
+61          conditional_mgf_two 401.0794    FALSE
+58      conditional_moments_two 403.7690    FALSE
+97      conditional_mgf_retain4 405.5302    FALSE
+88      conditional_mgf_retain2 405.7320    FALSE
+79      conditional_mgf_retain1 405.8636    FALSE
+52          conditional_mgf_one 405.9578    FALSE
+22             bentkus_gaussian 412.1675    FALSE
+94  conditional_moments_retain4 412.4004    FALSE
+85  conditional_moments_retain2 412.8730    FALSE
+76  conditional_moments_retain1 413.1174    FALSE
+49      conditional_moments_one 413.3946    FALSE
+28                      pinelis 413.9186    FALSE
+19                  binomial_p2 414.1387    FALSE
+100                grouped_auto 415.9043    FALSE
+7                      chernoff 422.1244    FALSE
+10                    hoeffding 422.7040    FALSE
+16                    bernstein 427.8401    FALSE
+64                grouped_three 428.4870    FALSE
+55                  grouped_two 445.1380    FALSE
+34          symmetric_chebyshev 448.0925    FALSE
+91              grouped_retain4 483.4440    FALSE
+82              grouped_retain2 486.2218    FALSE
+46                  grouped_one 486.9633    FALSE
+73              grouped_retain1 486.9633    FALSE
+13                     cantelli 490.6105    FALSE
+4                      endpoint 670.4629    FALSE
+1                       support 671.4629    FALSE
+    request                   method
+25        1       bentkus_gaussian_k
+26        2       bentkus_gaussian_k
+27        3       bentkus_gaussian_k
+31        1                pinelis_k
+32        2                pinelis_k
+33        3                pinelis_k
+37        1              tomaszewski
+38        2              tomaszewski
+39        3              tomaszewski
+40        1                 symmetry
+41        2                 symmetry
+42        3                 symmetry
+103       1 conditional_moments_auto
+104       2 conditional_moments_auto
+105       3 conditional_moments_auto
+106       1     conditional_mgf_auto
+107       2     conditional_mgf_auto
+108       3     conditional_mgf_auto
+                                                                    reason
+25  The split coincides with, or does not improve, its unsplit comparison.
+26  The split coincides with, or does not improve, its unsplit comparison.
+27  The split coincides with, or does not improve, its unsplit comparison.
+31  The split coincides with, or does not improve, its unsplit comparison.
+32  The split coincides with, or does not improve, its unsplit comparison.
+33  The split coincides with, or does not improve, its unsplit comparison.
+37                        Requires an upper-tail probability at least 1/4.
+38                        Requires an upper-tail probability at least 1/4.
+39                        Requires an upper-tail probability at least 1/4.
+40                        Requires an upper-tail probability at least 1/2.
+41                        Requires an upper-tail probability at least 1/2.
+42                        Requires an upper-tail probability at least 1/2.
+103                                              Exceeds max_count_states.
+104                                              Exceeds max_count_states.
+105                                              Exceeds max_count_states.
+106                                              Exceeds max_count_states.
+107                                              Exceeds max_count_states.
+108                                              Exceeds max_count_states.
+[1] 90.7328
+[1] 3
+All documented usage checks passed.

@@ -1,18 +1,21 @@
 \name{qweighted_bernoulli}
 \alias{qweighted_bernoulli}
-\title{Quantiles of Sums of Independent Weighted Bernoulli Variables}
+\title{Ordinary and Randomized Quantiles of Weighted Bernoulli Sums}
 \description{
 Computes exact finite-distribution quantiles when the number of random
 summands is small or an affordable exact representation is available.
 Otherwise evaluates the applicable conservative quantile candidates within
 the work limits and returns their minimum. All methods are accessed
-through this one function.
+through this one function. Optional randomization returns the adjacent
+cutoffs and their mixing probability, including the original inclusive
+two-sided construction for fair Bernoulli sums.
 }
 \usage{
 qweighted_bernoulli(
   p, weights, prob = 0.5, max_length = 25,
   lower.tail = TRUE, log.p = FALSE,
-  details = FALSE, control = list()
+  details = FALSE, control = list(),
+  randomized = FALSE, two.sided = FALSE, draw = TRUE
 )
 }
 \arguments{
@@ -46,14 +49,31 @@ qweighted_bernoulli(
   \item{log.p}{Logical scalar. If \code{TRUE}, \code{p} contains the
   natural logarithms of the probabilities specified by \code{lower.tail}.}
 
-  \item{details}{Logical scalar. If \code{FALSE}, return the numeric
-  quantile vector. If \code{TRUE}, also return a summary, the candidate
-  table, and calculation diagnostics.}
+  \item{details}{Logical scalar. In ordinary mode, if \code{FALSE}, return
+  the numeric quantile vector; if \code{TRUE}, also return a summary, the
+  candidate table, and calculation diagnostics. Randomized mode always
+  returns a list with the mixing distribution and summary; \code{TRUE}
+  adds the candidate table and calculation diagnostics.}
 
   \item{control}{A named list overriding any of the 11 work controls
   described below. Names must be distinct and recognized. Omitted
   entries use their defaults. These controls limit computational effort;
   they do not select a separate public method.}
+
+  \item{randomized}{Logical scalar. If \code{TRUE}, return a mixing
+  distribution for a randomized cutoff and, by default, an independent
+  draw. The default \code{FALSE} retains ordinary quantile computation.}
+
+  \item{two.sided}{Logical scalar. If \code{TRUE}, compute the original
+  inclusive two-sided cutoff for a fair Bernoulli sum. Requires
+  \code{randomized = TRUE}, \code{prob = 0.5} on every positive weight,
+  and a requested tail level strictly between zero and one.}
+
+  \item{draw}{Logical scalar. In randomized mode, if \code{TRUE}, generate
+  a cutoff with the returned mixing distribution. If \code{FALSE}, return
+  the distribution with \code{kappa = NULL} and \code{quantile = NULL}
+  without consuming random numbers. Ordinary calls and degenerate
+  mixtures also consume no random numbers.}
 }
 \details{
 Let
@@ -64,8 +84,8 @@ where the Bernoulli variables are independent. For \eqn{0 < u < 1},
 the quantile convention is
 \deqn{q_G(u) = \inf\{x : P(G \le x) \ge u\}.}{
        q_G(u) = inf\{x : P(G <= x) >= u\}.}
-At levels zero and one, the lower and upper support endpoints are
-returned, respectively. Deterministic summands are retained as an offset.
+In ordinary mode, levels zero and one return the lower and upper support
+endpoints, respectively. Deterministic summands are retained as an offset.
 
 An exact answer computes this finite-distribution quantile. A conservative
 answer \eqn{\widehat q} is an upper bound for it. In particular, a request
@@ -80,6 +100,68 @@ Pass small upper-tail levels directly with \code{lower.tail = FALSE},
 preferably also \code{log.p = TRUE}. Forming \code{1 - alpha} first can
 round the input to one and discard the intended tail level. Multiple
 levels in one call share distribution and bound preparation.
+}
+\section{Randomized cutoffs}{
+The tail level is \eqn{\alpha = 1-p} when \code{lower.tail = TRUE}, or
+\eqn{\alpha = p} when \code{lower.tail = FALSE}, after interpreting
+\code{log.p}. The following formulas describe the exact branch and
+\eqn{0 < \alpha < 1}. The mixing probability \code{tau} always selects
+the larger cutoff \code{c_plus}.
+
+For one-sided randomization, \eqn{c_+} is the ordinary
+\eqn{1-\alpha} quantile and \eqn{c_-} is its support predecessor,
+with \eqn{-\infty} below the minimum support point. Define
+\deqn{P_+ = P(G > c_+),\quad P_- = P(G > c_-),\quad
+       \tau = \frac{P_- - \alpha}{P_- - P_+}.}{
+       P_plus = P(G > c_plus), P_minus = P(G > c_minus),
+       tau = (P_minus - alpha) / (P_minus - P_plus).}
+An independent mixture choosing \eqn{c_+} with probability \eqn{\tau}
+has \eqn{P(G > \kappa)=\alpha}. One-sided endpoint requests are allowed:
+ordinary lower-tail level zero gives \eqn{-\infty}, and level one gives
+the maximum support point.
+
+For \code{two.sided = TRUE}, put \eqn{N=\sum_i w_i} and
+\eqn{\mathcal S=\{-1\}\cup(\mathrm{supp}(G)\cap[0,N/2])}.
+For \eqn{c\in\mathcal S} define
+\deqn{P_h(c)=P(|G-N/2|\ge N/2-c),\qquad P_h(-1)=0.}{
+       P_h(c) = P(abs(G - N/2) >= N/2 - c), with P_h(-1) = 0.}
+Then \eqn{c_+=q_G(\alpha/2)} is the first support point where
+\eqn{P_h(c)\ge\alpha}, and \eqn{c_-} is its predecessor in
+\eqn{\mathcal S}. In this mode the probability fields are
+\eqn{P_+=P_h(c_+)} and \eqn{P_-=P_h(c_-)} and
+\deqn{\tau=\frac{\alpha-P_-}{P_+-P_-}.}{
+       tau = (alpha - P_minus) / (P_plus - P_minus).}
+The independent mixture satisfies
+\eqn{P(|G-N/2|\ge N/2-\kappa)=\alpha}. Symmetry gives
+\eqn{P_h(c)=2P(G\le c)} only for \eqn{c<N/2}; at the center,
+\eqn{P_h(N/2)=1}. The algorithm counts a center atom once. For all-zero
+weights it returns \eqn{c_+=0}, \eqn{c_-=-1}, and \eqn{\tau=\alpha}.
+
+Exact engines return the boundary atom and actual predecessor from the
+same law used to calculate the quantile. A predecessor need not be one
+unit or one lattice step below the quantile. Exact randomization does
+not require full enumeration of the Cartesian product in a
+meet-in-the-middle calculation.
+
+If the exact mixing distribution cannot be obtained for a longer
+unstructured sum, the function returns a conservative degenerate mixture:
+\code{c_plus = c_minus}, \code{tau = 1}, and \code{exact = FALSE}.
+Its probability fields are upper bounds, not exact event probabilities,
+and it does not assert an exact adjacent bracket or exact level attainment.
+One-sided mode uses the minimum available upper quantile bound. Two-sided
+mode first selects the minimum available strict upper quantile bound
+\eqn{q} at level \eqn{\alpha/2}, then uses ascending and descending
+greedy subset searches to find an actual support value \eqn{c<N-q},
+or the sentinel \eqn{-1}. Symmetry implies
+\eqn{P_h(c)\le 2P(G>q)\le\alpha}. The strict support comparison is
+essential for the inclusive event. Selection of the deterministic bound
+precedes any random draw.
+
+The probability identities include a fresh independent uniform randomizer.
+Do not reuse a data-dependent or tie-breaking uniform from the statistic.
+With \code{draw = FALSE}, the mixing distribution is returned without
+changing the RNG state. The mathematical note's randomization addendum
+contains the proofs and further examples.
 }
 \section{Automatic calculation}{
 The function first removes zero and deterministic terms, handles
@@ -184,10 +266,12 @@ change when limits are changed, so a larger budget does not promise a
 monotone decrease in the returned value.
 }
 \value{
-If \code{details = FALSE}, a numeric vector of length \code{length(p)},
+For \code{randomized = FALSE} and \code{details = FALSE}, a numeric
+vector of length \code{length(p)},
 with the names of \code{p}.
 
-If \code{details = TRUE}, a list with four components:
+For \code{randomized = FALSE} and \code{details = TRUE}, a list with
+four components:
 \describe{
   \item{\code{quantile}}{The same numeric quantile vector.}
   \item{\code{summary}}{A data frame with one row per requested level.
@@ -222,12 +306,46 @@ The ordinary-scale \code{probability} field can round to one for a very
 small upper tail; the logarithmic tail fields preserve the supplied
 logarithmic level. Detailed fields describe the calculation and are not
 an independent certification of floating-point error.
+
+For \code{randomized = TRUE}, the return value is always a list:
+\describe{
+  \item{\code{c_plus}, \code{c_minus}}{Exact adjacent cutoffs or equal
+  endpoints for a degenerate conservative fallback. Names are preserved.}
+  \item{\code{tau}}{Probability of selecting \code{c_plus}.}
+  \item{\code{log_tau}, \code{log_one_minus_tau}}{Natural logarithms of
+  the two mixing probabilities, retained when ordinary-scale values
+  round to zero or one.}
+  \item{\code{P_plus}, \code{P_minus}}{The event probabilities at the
+  cutoffs in the exact branch, or upper bounds in a conservative row.
+  For one-sided mode the event is \eqn{G>c}; for two-sided mode it is
+  \eqn{|G-N/2|\ge N/2-c}.}
+  \item{\code{log_P_plus}, \code{log_P_minus}}{Natural logarithms of
+  the corresponding probability fields.}
+  \item{\code{kappa}, \code{quantile}}{The same generated cutoff vector.
+  Both fields are \code{NULL} when \code{draw = FALSE}.}
+  \item{\code{exact}}{One logical value per request, indicating that
+  the exact-law mixing distribution was resolved.}
+  \item{\code{alpha}, \code{log_alpha}, \code{two.sided}}{Requested
+  tail levels, their logarithms, and the event convention.}
+  \item{\code{summary}}{A data frame with columns \code{probability},
+  \code{alpha}, \code{c_minus}, \code{c_plus}, \code{tau},
+  \code{P_minus}, \code{P_plus}, \code{exact}, \code{degenerate},
+  \code{probability_type}, and \code{method}. The probability type is
+  \code{"exact"} or \code{"upper_bound"}.}
+  \item{\code{bounds}, \code{diagnostics}}{Added when
+  \code{details = TRUE}. In conservative two-sided mode, the candidate
+  quantiles concern the underlying upper-tail level \eqn{\alpha/2},
+  before reflection and the support search; they are not the final
+  two-sided cutoffs.}
+}
 }
 \note{
 All proofs concern real arithmetic. Here \dQuote{exact} means an exact
 finite-distribution algorithm evaluated in double precision, not symbolic
 or certified interval arithmetic. Numerically indistinguishable subset
 sums and probabilities at a CDF jump retain this qualification.
+A randomized calculation raises an error if the adjacent support values
+collapse to the same representable double after an offset is added.
 
 Small tails are compared directly and logarithmic probabilities are
 used when ordinary masses can underflow. Conservative calculations use
@@ -237,6 +355,16 @@ replaced by their deterministic maximum contribution, which is added
 back to the bound. These safeguards do not constitute a complete
 outward error analysis of R's special functions. The accompanying
 mathematical note gives the derivations and numerical qualifications.
+
+Draws use \code{\link[stats]{runif}} and the currently selected R random
+number generator. Its finite resolution entails a small discretization
+error relative to an ideal continuous uniform. Extremely small mixing
+probabilities can lie below that resolution even when their logarithms
+are retained. Use \code{draw = FALSE} to obtain the distribution for a
+different sampling implementation if necessary; see \code{\link[base]{RNG}}.
+The installed baseline note documents version 0.1.0. The current source
+and \file{randomized_quantiles.pdf} addendum document version 0.2.0;
+the baseline note's code appendix is not the current implementation.
 }
 \references{
 Bentkus, V. (2004). On Hoeffding's inequalities.
@@ -267,9 +395,39 @@ article 108558. \doi{10.1016/j.aim.2022.108558}.
 }
 \seealso{
 \code{\link[stats]{qbinom}}, \code{\link[stats]{qsignrank}},
+\code{\link[stats]{runif}}, \code{\link[base]{RNG}},
 \code{\link{weightedBernoulli-package}}.
 }
 \examples{
+# Original fair two-sided mixing distribution, without an RNG draw.
+cut <- qweighted_bernoulli(
+  0.05, weights = 1:20, lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE, draw = FALSE
+)
+cut[c("c_minus", "c_plus", "tau", "P_minus", "P_plus")]
+cut$tau * cut$P_plus + (1 - cut$tau) * cut$P_minus
+
+# An atom at the center is counted once.
+center <- qweighted_bernoulli(
+  0.75, weights = c(1, 1), lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE, draw = FALSE
+)
+center$tau  # 0.5
+
+# Reproducible draw from the exact mixing distribution.
+set.seed(20261007)
+qweighted_bernoulli(
+  0.05, weights = 1:20, lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE
+)$kappa
+
+# One-sided randomization permits unequal Bernoulli probabilities.
+one <- qweighted_bernoulli(
+  0.05, weights = c(1, 2, 4), prob = c(0.2, 0.5, 0.8),
+  lower.tail = FALSE, randomized = TRUE, draw = FALSE
+)
+one[c("c_minus", "c_plus", "tau")]
+
 # Small vector with unequal probabilities: exact.
 qweighted_bernoulli(
   c(0.5, 0.9, 0.95), weights = c(1, 2, 4),

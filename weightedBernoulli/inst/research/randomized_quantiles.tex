@@ -1,0 +1,427 @@
+\documentclass[11pt,letterpaper]{article}
+\ifdefined\pdfminorversion\pdfminorversion=7\fi
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.88in,headheight=14pt]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{enumitem,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,
+  urlcolor=MidnightBlue,breaklinks=true]{hyperref}
+\hypersetup{pdftitle={Randomized Quantiles of Weighted Bernoulli Sums},
+  pdfsubject={Exact randomization and conservative fallback in weightedBernoulli}}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}[proposition]{Remark}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\Pbb}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\definecolor{CodeBackground}{HTML}{F5F7FA}
+\definecolor{CodeBorder}{HTML}{D9E0E8}
+\lstdefinestyle{Rcode}{language=R,
+  basicstyle=\ttfamily\fontsize{8.8}{10.6}\selectfont,
+  keywordstyle=\color{MidnightBlue},commentstyle=\color{gray},
+  stringstyle=\color{BrickRed},backgroundcolor=\color{CodeBackground},
+  frame=single,rulecolor=\color{CodeBorder},framerule=0.3pt,
+  framesep=5pt,aboveskip=8pt,belowskip=8pt,
+  showstringspaces=false,upquote=true,keepspaces=true,
+  columns=fullflexible,breaklines=true,breakatwhitespace=false,tabsize=2}
+\lstset{style=Rcode}
+\setlist{topsep=3pt,itemsep=2pt,parsep=0pt}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{2em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Weighted Bernoulli quantiles}
+\fancyhead[R]{\small Randomization addendum}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\title{\vspace{-1.1em}\textbf{Randomized Quantiles of\\Weighted Bernoulli Sums}\\[0.4em]
+  \large An addendum to the computation note}
+\author{}
+\date{October 7, 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+\begin{abstract}
+For a discrete distribution, a deterministic quantile generally leaves
+unused probability at its boundary. Independent randomization between two
+adjacent support points removes this discrepancy when the distribution can
+be computed exactly. This addendum gives the one-sided construction and the
+original two-sided construction for fair weighted Bernoulli sums, proves
+their probability identities, and explains the special treatment of an atom
+at the center. It also specifies a conservative fallback and its different
+output interpretation. Both constructions use the existing single public
+function, \texttt{qweighted\_bernoulli()}.
+\end{abstract}
+
+\section{Model, interface, and probability conventions}
+
+Let
+\[
+G=\sum_{i=1}^{B}w_i\xi_i,\qquad
+\xi_i\sim\operatorname{Ber}(\pi_i)\text{ independently},\qquad
+w_i\ge0,\quad 0\le\pi_i\le1,
+\]
+and write $F(x)=\Pbb(G\le x)$. The weights and success probabilities are
+specified inputs. All probability identities involving a randomized cutoff
+include a fresh uniform variable $V\sim U(0,1)$, independent of $G$ and of
+any data or tie-breaking variables used elsewhere in the procedure.
+
+The package retains one exported function. Three arguments are appended to
+the existing interface, preserving earlier positional calls:
+\begin{lstlisting}
+qweighted_bernoulli(
+  p, weights, prob = 0.5, max_length = 25,
+  lower.tail = TRUE, log.p = FALSE, details = FALSE,
+  control = list(),
+  randomized = FALSE, two.sided = FALSE, draw = TRUE
+)
+\end{lstlisting}
+The default \texttt{randomized = FALSE} retains deterministic quantile
+computation. For \texttt{randomized = TRUE}, the function always returns a
+list containing \texttt{c\_plus}, \texttt{c\_minus}, \texttt{tau},
+\texttt{P\_plus}, \texttt{P\_minus}, \texttt{exact}, and \texttt{kappa}.
+The field \texttt{tau} is always the probability of selecting the larger
+cutoff \texttt{c\_plus}. Setting \texttt{draw = FALSE} returns the mixing
+distribution with \texttt{kappa = NULL}; it does not generate a draw.
+
+The argument \texttt{p} retains the usual probability convention. With
+\texttt{lower.tail = FALSE}, it specifies the tail level $\alpha$ directly.
+With \texttt{lower.tail = TRUE}, it specifies $1-\alpha$. Setting
+\texttt{log.p = TRUE} supplies the logarithm of the corresponding probability.
+The statements below use $0<\alpha<1$.
+
+\section{Exact one-sided randomization}
+
+Put $p_0=1-\alpha$ and define
+\[
+c_+=\min\{x\in\supp(G):F(x)\ge p_0\},\qquad
+c_-=\max\{x\in\supp(G):x<c_+\}.
+\]
+If the latter set is empty, use the sentinel $c_-=-\infty$. This convention
+also works when deterministic summands shift the minimum of the support
+away from zero. Define
+\begin{equation}\label{eq:one-sided-P}
+P_+=\Pbb(G>c_+),\qquad P_-=\Pbb(G>c_-),\qquad
+\tau=\frac{P_--\alpha}{P_--P_+}.
+\end{equation}
+Minimality of $c_+$ gives $P_+\le\alpha<P_-$ and hence $0<\tau\le1$.
+The randomized cutoff is
+\begin{equation}\label{eq:mixture}
+\kappa=\begin{cases}
+c_+,&V\le\tau,\\
+c_-,&V>\tau.
+\end{cases}
+\end{equation}
+
+\begin{proposition}\label{prop:one-sided}
+The cutoff in \eqref{eq:mixture} satisfies
+$\Pbb(G>\kappa)=\alpha$, or equivalently
+$\Pbb(G\le\kappa)=1-\alpha$.
+\end{proposition}
+\begin{proof}
+Independence permits conditioning on the selected cutoff, giving
+\[
+\Pbb(G>\kappa)=\tau P_++(1-\tau)P_-
+ =P_--\tau(P_--P_+)=\alpha.
+\]
+The complementary identity follows because the event uses a strict upper
+tail. No continuity assumption is needed.
+\end{proof}
+
+Equivalently,
+\[
+\tau=\frac{p_0-\Pbb(G<c_+)}{\Pbb(G=c_+)}.
+\]
+This identity explains the need for the atom at the quantile. Merely
+returning the ordinary quantile does not provide the randomization. For a
+constant $G=g_0$, the construction gives $c_+=g_0$, $c_-=-\infty$, and
+$\tau=p_0$. The natural one-sided endpoint extensions are a cutoff of
+$-\infty$ at $p_0=0$ and the maximum support point at $p_0=1$.
+
+\begin{lstlisting}
+one <- qweighted_bernoulli(
+  p = 0.05, weights = c(1, 2, 4),
+  prob = c(0.2, 0.5, 0.8), lower.tail = FALSE,
+  randomized = TRUE, draw = FALSE
+)
+one[c("c_plus", "c_minus", "tau", "P_plus", "P_minus")]
+
+# In the exact branch, this is the requested strict-tail level.
+one$tau * one$P_plus + (1 - one$tau) * one$P_minus
+\end{lstlisting}
+Here \texttt{P\_plus} and \texttt{P\_minus} are the strict upper-tail
+probabilities in \eqref{eq:one-sided-P}. In particular, the probability
+associated with the larger cutoff is the smaller tail probability.
+
+\section{The original fair two-sided cutoff}
+
+Now assume $\pi_i=1/2$ for every positive weight, and let $N=\sum_iw_i$.
+Complementing all Bernoulli variables gives $G\overset d=N-G$. Define
+\[
+\mathcal S=\{-1\}\cup\bigl(\supp(G)\cap[0,N/2]\bigr),
+\]
+and, for $c\in\mathcal S\setminus\{-1\}$,
+\[
+P(c)=\Pbb\!\left(\left|G-\frac N2\right|\ge\frac N2-c\right),
+\qquad P(-1)=0.
+\]
+The value $-1$ is a sentinel below the nonnegative support. It is appropriate
+even for noninteger weights: an increment of one between support points is
+neither assumed nor used.
+
+\begin{proposition}\label{prop:two-sided}
+Let
+\[
+c_+=\min\{c\in\mathcal S:P(c)\ge\alpha\},\qquad
+c_-=\max\{c\in\mathcal S:c<c_+\}.
+\]
+Then $c_+=q_G(\alpha/2)$, where $q_G$ is the ordinary leftmost distributional
+quantile. Write $F_-=\Pbb(G<c_+)$. The probabilities at the two cutoffs are
+\begin{equation}\label{eq:two-sided-P}
+P_-=2F_-,\qquad
+P_+=\begin{cases}
+2F(c_+),&c_+<N/2,\\
+1,&c_+=N/2.
+\end{cases}
+\end{equation}
+With
+\begin{equation}\label{eq:two-sided-tau}
+\tau=\frac{\alpha-P_-}{P_+-P_-}
+\end{equation}
+and the independent mixture \eqref{eq:mixture},
+\[
+\Pbb\!\left(\left|G-\frac N2\right|\ge\frac N2-\kappa\right)=\alpha.
+\]
+\end{proposition}
+\begin{proof}
+For $c<N/2$, the events $\{G\le c\}$ and $\{G\ge N-c\}$ are disjoint.
+Symmetry therefore gives $P(c)=2F(c)$. At $c=N/2$, their union is the whole
+space, so $P(N/2)=1$. Symmetry also gives $F(N/2)\ge1/2$. Since
+$\alpha/2<1/2$, the quantile $q_G(\alpha/2)$ is at most $N/2$ and is the first
+support point at which $P(c)\ge\alpha$. Its predecessor is strictly below
+$N/2$, and $F(c_-)=\Pbb(G<c_+)$, including the sentinel case. These facts prove
+\eqref{eq:two-sided-P}. Minimality gives $P_-<\alpha\le P_+$, so the mixing
+probability is in $(0,1]$. Conditioning on the independent mixture yields
+$(1-\tau)P_-+\tau P_+=\alpha$, as claimed.
+\end{proof}
+
+\textbf{The center atom.} If $c_+=N/2$, the jump $P_+-P_-$ equals
+$\Pbb(G=N/2)$, not twice that atom. Indeed, symmetry gives
+$2F_-=1-\Pbb(G=N/2)$. Replacing $P_+$ by $2F(c_+)$ would double-count the
+center and use the wrong randomization.
+
+For $w=(1,1)$ and $\alpha=0.75$, the law of $G$ has masses $1/4,1/2,1/4$ at
+$0,1,2$. Thus
+\[
+c_-=0,\quad c_+=1,\quad P_-=\frac12,\quad P_+=1,\quad\tau=\frac12.
+\]
+For all-zero weights, $G=N=0$ and the same definitions give $c_-=-1$,
+$c_+=0$, and $\tau=\alpha$.
+
+\begin{lstlisting}
+center <- qweighted_bernoulli(
+  p = 0.75, weights = c(1, 1), lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE, draw = FALSE
+)
+center[c("c_plus", "c_minus", "tau", "P_plus", "P_minus")]
+# c_plus = 1, c_minus = 0, tau = 0.5
+# P_plus = 1, P_minus = 0.5
+
+cut <- qweighted_bernoulli(
+  p = 0.05, weights = 1:20, lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE, draw = FALSE
+)
+cut$tau * cut$P_plus + (1 - cut$tau) * cut$P_minus
+\end{lstlisting}
+The two-sided mode uses the probabilities in \eqref{eq:two-sided-P}; the
+larger cutoff now has the larger event probability. This explains the
+different orientations of \eqref{eq:one-sided-P} and
+\eqref{eq:two-sided-tau}, although \texttt{tau} selects the larger cutoff in
+both modes.
+
+\section{Obtaining the bracket without full enumeration}
+
+The exact engines and the rule \texttt{max\_length = 25} are described in
+the main note~\cite{mainnote}. Randomization uses the same exact law and adds
+the predecessor and the boundary probabilities. It does not require a new
+public function or full enumeration of all $2^B$ Bernoulli outcomes.
+
+In a meet-in-the-middle calculation, write $G=A+D$, where $A$ and $D$ are
+independent half-sums with sorted supports $a_i$ and $d_j$ and masses
+$r_i$ and $s_j$. At a candidate $x$, determine
+\[
+j_i^{\le}(x)=\max\{j:a_i+d_j\le x\},\qquad
+j_i^{<}(x)=\max\{j:a_i+d_j<x\},
+\]
+using zero when the respective set is empty. With prefix masses
+$S_j=\sum_{k\le j}s_k$ and $S_0=0$, the exact queries are
+\[
+F(x)=\sum_i r_iS_{j_i^{\le}(x)},\qquad
+\Pbb(G<x)=\sum_i r_iS_{j_i^{<}(x)}.
+\]
+The actual predecessor of $x$ is
+\[
+\max_{i:j_i^{<}(x)>0}\bigl(a_i+d_{j_i^{<}(x)}\bigr),
+\]
+or the appropriate sentinel if the index set is empty. These same strict
+and non-strict queries already verify the jump containing an exact
+quantile. Reusing them avoids enumerating the Cartesian product of the
+two half-supports.
+
+The repeated-class engine applies the same calculation after replacing
+equal weight--probability pairs by binomial counts. Binomial and Wilcoxon
+supports have consecutive lattice coordinates. A general lattice
+distribution can have gaps, so its predecessor must be the previous
+reachable coordinate. Subtracting a unit or an arbitrary numerical tolerance
+from an exact quantile is not a general substitute for this search.
+
+\textbf{Numerical meaning of exact.} The probability identities above are
+mathematical identities. As in the main note, \texttt{exact = TRUE} describes
+an exact finite-law algorithm implemented in double precision; it does not
+assert interval-certified arithmetic. Direct small-tail evaluation,
+logarithmic probabilities, and stable differences avoid unnecessary
+cancellation. On a recognized lattice, integer coordinates also determine
+whether the quantile is the center. Arbitrary tolerance-based merging of
+nearby atoms is not justified by the theory.
+
+\section{A conservative fallback with a stated guarantee}
+
+If the exact law is unaffordable, the existing algorithm computes the
+applicable conservative candidates under its work limits and chooses their
+minimum~\cite{mainnote}. The selected deterministic bound is chosen before
+any random draw. A bound alone does not identify the quantile atom, and its
+upper-tail certificate cannot be inserted into an exact interpolation
+formula as though it were the true tail probability.
+
+\subsection*{One-sided mode}
+
+Suppose the selected threshold $q$ has a certificate
+\[
+\Pbb(G>q)\le b\le\alpha.
+\]
+The fallback reports the degenerate mixture
+$c_+=c_-=q$ and $\tau=1$. It consequently satisfies
+$\Pbb(G>\kappa)\le\alpha$. The fields \texttt{P\_plus} and
+\texttt{P\_minus} report bounds on the event probabilities, rather than
+the event probabilities themselves, and \texttt{exact = FALSE} identifies
+this case. The two reported cutoffs do not assert that the true quantile has
+been bracketed by adjacent support points.
+
+\subsection*{The original two-sided mode}
+
+Suppose the selected upper quantile bound at level $\alpha/2$ has a certificate
+\begin{equation}\label{eq:qcertificate}
+\Pbb(G>q)\le b\le\alpha/2.
+\end{equation}
+Choose an actual support value $c$ satisfying
+\begin{equation}\label{eq:strict-support}
+0\le c\le N/2,\qquad c<N-q,
+\end{equation}
+or choose the sentinel $c=-1$ if no such value is obtained.
+
+\begin{proposition}\label{prop:conservative}
+Every cutoff chosen in this way satisfies $P(c)\le\alpha$.
+\end{proposition}
+\begin{proof}
+The sentinel has $P(-1)=0$. Otherwise, symmetry and the strict inequality in
+\eqref{eq:strict-support} imply
+\[
+F(c)\le\Pbb(G<N-q)=\Pbb(N-G>q)=\Pbb(G>q)\le b.
+\]
+In fact $c<N/2$: if $c=N/2$, then $F(c)\ge1/2$ by symmetry, contradicting
+$b\le\alpha/2<1/2$. Thus $P(c)=2F(c)\le2b\le\alpha$.
+\end{proof}
+
+A deterministic greedy subset search gives an inexpensive support value.
+Start at zero when it satisfies \eqref{eq:strict-support}; traverse the
+positive weights and add a weight only when the resulting sum still
+satisfies that condition. Run the search in ascending and descending order
+and retain the larger feasible result. Each result is a sum of a subset of
+the original weights, so it belongs to $\supp(G)$. Optimal subset packing
+is unnecessary for the guarantee: the strict budget and actual support
+membership suffice. The sentinel remains available when the budget is
+nonpositive. Numerical comparisons retain the precision qualification
+stated above.
+
+The fallback reports $c_+=c_-=c$, $\tau=1$, and
+\texttt{exact = FALSE}. Its \texttt{P\_plus} and \texttt{P\_minus} are
+certified bounds, at most $2b$ (zero for the sentinel). These equal endpoints
+are a degenerate conservative cutoff, not the original exact bracket.
+The algorithm does not claim equality with $\alpha$ in this branch.
+
+The strict condition $c<N-q$ is essential. A strict upper-tail bound controls
+$\Pbb(G<N-q)$ by symmetry; setting $c=N-q$ can add a boundary atom that the
+certificate does not cover.
+
+\section{Drawing and interpreting the result}
+
+To obtain the mixing distribution without consuming a random draw, use
+\texttt{draw = FALSE}. To obtain the draw as well, use the default
+\texttt{draw = TRUE}:
+\begin{lstlisting}
+set.seed(20261007)
+out <- qweighted_bernoulli(
+  p = 0.05, weights = 1:20, lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE
+)
+out$kappa
+out$exact
+
+# The returned mixing distribution can also be sampled explicitly.
+law <- qweighted_bernoulli(
+  p = 0.05, weights = 1:20, lower.tail = FALSE,
+  randomized = TRUE, two.sided = TRUE, draw = FALSE
+)
+v <- runif(length(law$tau))
+kappa <- ifelse(log(v) < law$log_tau, law$c_plus, law$c_minus)
+\end{lstlisting}
+The explicit draw must be independent of the variables to which the cutoff
+will be applied. In particular, a tie-breaking uniform from an earlier
+construction must not be reused. The mathematical assertions concern the
+joint probability over $G$ and this independent randomization; conditional
+on a realized cutoff, its individual event probability need not equal
+$\alpha$.
+
+R's pseudorandom generators have finite resolution; most supplied uniform
+generators produce at most $2^{32}$ distinct values~\cite{rrng}. Thus the
+ideal-uniform probability identities are subject to both arithmetic and
+simulation discretization. In particular, a single uniform comparison
+cannot realize every extremely small mixing probability exactly. For such
+levels, \texttt{draw = FALSE} preserves the analytical mixture and its
+logarithmic weights for a separate sampling scheme. Standard R seeding
+controls reproducibility; the function does not reset the seed.
+
+Check \texttt{exact} before interpreting the probability fields. In an exact
+row, the weighted average of \texttt{P\_plus} and \texttt{P\_minus} equals
+the requested level, subject to ordinary numerical precision. In a
+conservative row, those fields are bounds and the weighted average certifies
+an inequality. All candidate selection is deterministic in the supplied
+weights, probabilities, levels, and work limits. Taking the minimum of
+separately randomized upper thresholds is not covered by the guarantee:
+even two individually valid randomized thresholds can produce an invalid
+minimum.
+
+\begin{thebibliography}{9}
+\bibitem{mainnote}
+\emph{Computing Quantiles of Weighted Bernoulli Sums: Exact Algorithms,
+Conservative Bounds, and Reproducible R Code} (2026).
+Technical note accompanying the \texttt{weightedBernoulli} package,
+October 7, 2026. The exact computation engines, concentration inequalities,
+work limits, and numerical comparisons are documented there. The note is
+included as \texttt{weighted\_bernoulli\_quantiles.pdf} in the package
+documentation. This addendum supplies the integrated randomized interface
+and the probability identities needed to interpret it.
+\bibitem{rrng}
+R Core Team. \emph{Random Number Generation} and \emph{The Uniform Distribution}.
+R documentation, accessed October 7, 2026.
+\url{https://stat.ethz.ch/R-manual/R-devel/library/base/html/Random.html};
+\url{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Uniform.html}.
+\end{thebibliography}
+\end{document}

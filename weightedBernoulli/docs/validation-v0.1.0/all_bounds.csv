@@ -1,0 +1,811 @@
+"request","probability","method","quantile","tail_bound","log_tail_bound","available","selected","exact","reason","partition","states","grid_error","setting","alpha","family","actual_tail"
+1,0.95,"support",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"support",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"support",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"endpoint",89.7327997886787,1.49011611938517e-08,-18.0218266945583,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"endpoint",89.7327997886787,1.49011611938517e-08,-18.0218266945583,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"endpoint",89.7327997886787,1.49011611938517e-08,-18.0218266945583,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"chernoff",67.7054947546219,0.049999999999895,-2.99573227355609,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"chernoff",78.0425484144793,0.00099999999999676,-6.90775527898538,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"chernoff",87.9975909201072,9.99999999993707e-07,-13.8155105579706,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"hoeffding",68.2956609816253,0.0499999999999635,-2.99573227355472,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"hoeffding",80.1846573386987,0.000999999999998862,-6.90775527898328,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"hoeffding",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"cantelli",86.1983726607936,0.0499999999999911,-2.99573227355417,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"cantelli",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"cantelli",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"bernstein",70.9824482265453,0.04999999999997,-2.99573227355459,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"bernstein",86.5465414614142,0.000999999999999141,-6.907755278983,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"bernstein",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"binomial_p2",66.3093527338187,0.0499999999999657,-2.99573227355468,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"binomial_p2",78.8816523012069,0.000999999999999027,-6.90775527898311,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"binomial_p2",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian",65.5178277825553,0.0499999999999625,-2.99573227355474,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian",77.391117575362,0.000999999999998872,-6.90775527898326,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",90.3122353216692,9.99999999996839e-07,-13.8155105579674,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"pinelis",65.9794904443232,0.0499999999999623,-2.99573227355475,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"pinelis",77.6364665953713,0.000999999999998848,-6.90775527898329,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"pinelis",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",90.3060768003409,9.99999999996799e-07,-13.8155105579675,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",74.9890263815417,0.0499999999999885,-2.99573227355422,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"symmetric_chebyshev",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"symmetric_chebyshev",90.7327997886787,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"sqrt26",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"sqrt26",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"sqrt26",1e-06,"Concentration",NA
+1,0.95,"grid",60.7978515625026,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.00499318008293815,"sqrt26",0.05,"Grid",NA
+2,0.999,"grid",73.4838867187526,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.00499318008293815,"sqrt26",0.001,"Grid",NA
+3,0.999999,"grid",85.7690429687526,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.00499318008293815,"sqrt26",1e-06,"Grid",NA
+1,0.95,"grouped_one",71.4267992626378,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,25.023688054351,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_one",82.3504674412317,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,25.023688054351,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_one",88.3185862263004,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,25.023688054351,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_one",64.947896812181,0.0458572870490135,-3.08222116054137,TRUE,FALSE,FALSE,"","one",27,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_one",77.255226387451,0.000851287405685662,-7.06876075939765,TRUE,FALSE,FALSE,"","one",27,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_one",87.6134897147886,9.99999999974526e-07,-13.8155105579897,TRUE,FALSE,FALSE,"","one",27,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_one",63.7880925455688,0.0499999999992853,-2.99573227356828,TRUE,FALSE,FALSE,"","one",27,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_one",75.6342642789447,0.000999999999971202,-6.90775527901094,TRUE,FALSE,FALSE,"","one",27,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_one",86.9818905638281,9.99999999920846e-07,-13.8155105580434,TRUE,FALSE,FALSE,"","one",27,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_two",66.6127210826327,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",14,13.2726963636415,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_two",78.1181590556921,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",14,13.2726963636415,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_two",88.3185862263004,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",14,13.2726963636415,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_two",62.8362019214037,0.0499999999993496,-2.995732273567,TRUE,FALSE,FALSE,"","two",196,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_two",75.2070029513558,0.000999999999975864,-6.90775527900627,TRUE,FALSE,FALSE,"","two",196,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_two",86.5929611662383,9.99999999939079e-07,-13.8155105580252,TRUE,FALSE,FALSE,"","two",196,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_two",62.4219236821444,0.0499999999993065,-2.99573227356786,TRUE,FALSE,FALSE,"","two",196,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_two",74.8563804006334,0.000999999999965664,-6.90775527901647,TRUE,FALSE,FALSE,"","two",196,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_two",86.5929611662383,9.99999999939079e-07,-13.8155105580252,TRUE,FALSE,FALSE,"","two",196,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_three",64.6940223747117,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","three",90,9.15738229562574,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_three",76.3252736675918,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","three",90,9.15738229562574,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_three",86.5865354187315,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","three",90,9.15738229562574,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_three",62.2069451791328,0.0498702330829428,-2.99833098562426,TRUE,FALSE,FALSE,"","three",900,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_three",74.7009096137326,0.000999999999975572,-6.90775527900657,TRUE,FALSE,FALSE,"","three",900,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_three",86.5705221285722,9.1625976613892e-07,-13.9029659249877,TRUE,FALSE,FALSE,"","three",900,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_three",61.9601521647399,0.0499999999992262,-2.99573227356947,TRUE,FALSE,FALSE,"","three",900,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_three",74.4751194035424,0.000999999999974859,-6.90775527900728,TRUE,FALSE,FALSE,"","three",900,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_three",86.3199036945515,9.9999999990069e-07,-13.8155105580636,TRUE,FALSE,FALSE,"","three",900,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain1",71.4267992626378,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,23.5302198162222,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_retain1",82.3504674412317,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,23.5302198162222,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain1",88.3185862263004,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,23.5302198162222,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain1",64.8161184117388,0.0499999999993206,-2.99573227356758,TRUE,FALSE,FALSE,"","retain1",52,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain1",77.255226387451,0.00076810527773447,-7.17158375382783,TRUE,FALSE,FALSE,"","retain1",52,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain1",87.4891500927222,9.99999999972598e-07,-13.8155105579917,TRUE,FALSE,FALSE,"","retain1",52,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain1",63.5137654373412,0.0499999999992689,-2.99573227356861,TRUE,FALSE,FALSE,"","retain1",52,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain1",75.5951457484112,0.000999999999968705,-6.90775527901343,TRUE,FALSE,FALSE,"","retain1",52,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain1",86.981704918044,9.99999999936949e-07,-13.8155105580273,TRUE,FALSE,FALSE,"","retain1",52,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain2",71.4267992626378,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,22.1357710916862,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_retain2",79.9009776984486,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,22.1357710916862,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain2",88.3185862263004,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,22.1357710916862,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain2",64.4824610264521,0.0499999999994499,-2.99573227356499,TRUE,FALSE,FALSE,"","retain2",100,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain2",77.255226387451,0.000740066932272106,-7.20876992683996,TRUE,FALSE,FALSE,"","retain2",100,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain2",87.3757742845093,9.99999999970365e-07,-13.8155105579939,TRUE,FALSE,FALSE,"","retain2",100,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain2",63.4041388168753,0.0499999999991723,-2.99573227357054,TRUE,FALSE,FALSE,"","retain2",100,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain2",75.5683207742468,0.000999999999968997,-6.90775527901314,TRUE,FALSE,FALSE,"","retain2",100,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain2",86.9704853378587,9.99999999934238e-07,-13.81551055803,TRUE,FALSE,FALSE,"","retain2",100,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain4",69.5278197770714,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,19.3691633130827,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_retain4",79.9009776984486,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,19.3691633130827,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain4",88.3185862263004,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,19.3691633130827,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain4",64.0753266877517,0.0499999999993311,-2.99573227356737,TRUE,FALSE,FALSE,"","retain4",368,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain4",76.7264730366679,0.000999999999981474,-6.90775527900066,TRUE,FALSE,FALSE,"","retain4",368,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain4",87.1855632675372,9.99999999964537e-07,-13.8155105579997,TRUE,FALSE,FALSE,"","retain4",368,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain4",63.1927979405273,0.0499999999992187,-2.99573227356962,TRUE,FALSE,FALSE,"","retain4",368,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain4",75.4955418017861,0.000999999999967749,-6.90775527901439,TRUE,FALSE,FALSE,"","retain4",368,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain4",86.9441718792966,9.99999999941949e-07,-13.8155105580223,TRUE,FALSE,FALSE,"","retain4",368,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_auto",61.6327587451749,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",65536,2.39361485985921,"sqrt26",0.05,"Count envelope",NA
+2,0.999,"grouped_auto",74.1139677066824,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",65536,2.39361485985921,"sqrt26",0.001,"Count envelope",NA
+3,0.999999,"grouped_auto",86.0007489811046,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",65536,2.39361485985921,"sqrt26",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",327680,NA,"sqrt26",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",327680,NA,"sqrt26",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",327680,NA,"sqrt26",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",327680,NA,"sqrt26",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",327680,NA,"sqrt26",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",327680,NA,"sqrt26",1e-06,"Conditional MGF",NA
+1,0.95,"support",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"support",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"support",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"endpoint",670.462947103205,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"endpoint",670.462947103205,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"endpoint",670.462947103205,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"chernoff",422.124402079765,0.0499999999997447,-2.9957322735591,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"chernoff",465.753812948011,0.000999999999993474,-6.90775527898866,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"chernoff",516.628534149662,9.99999999991376e-07,-13.8155105579729,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"hoeffding",422.704020891146,0.0499999999999315,-2.99573227355536,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"hoeffding",467.799948516063,0.000999999999997891,-6.90775527898425,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"hoeffding",522.504502008262,9.99999999996974e-07,-13.8155105579673,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"cantelli",490.610458568973,0.0499999999999855,-2.99573227355428,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"cantelli",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"cantelli",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"bernstein",427.840105017842,0.0499999999999385,-2.99573227355522,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"bernstein",479.813737599068,0.00099999999999821,-6.90775527898393,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"bernstein",546.944343082509,9.99999999997556e-07,-13.8155105579667,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"binomial_p2",414.138732050413,0.0499999999999344,-2.9957322735553,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"binomial_p2",461.602164826171,0.000999999999997977,-6.90775527898416,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"binomial_p2",520.083423509856,9.99999999997336e-07,-13.8155105579669,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian",412.167474227573,0.04999999999993,-2.99573227355539,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian",457.2038255801,0.000999999999997917,-6.90775527898422,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian",512.751457976815,9.99999999997013e-07,-13.8155105579673,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"pinelis",413.918598154012,0.0499999999999294,-2.9957322735554,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"pinelis",458.134454315856,0.000999999999997876,-6.90775527898426,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"pinelis",512.703151782885,9.9999999999697e-07,-13.8155105579673,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",448.092498822857,0.0499999999999802,-2.99573227355439,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"symmetric_chebyshev",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"symmetric_chebyshev",671.462947103205,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"sqrt100",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"sqrt100",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"sqrt100",1e-06,"Concentration",NA
+1,0.95,"grid",394.316406250019,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.208927896880875,"sqrt100",0.05,"Grid",NA
+2,0.999,"grid",444.863281250019,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.208927896880875,"sqrt100",0.001,"Grid",NA
+3,0.999999,"grid",501.023437500019,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.208927896880875,"sqrt100",1e-06,"Grid",NA
+1,0.95,"grouped_one",486.963294162826,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,193.391345896125,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_one",530.663888950669,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,193.391345896125,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_one",575.533994891789,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,193.391345896125,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_one",413.394628909502,0.0499999999951532,-2.99573227365093,TRUE,FALSE,FALSE,"","one",101,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_one",472.226166272595,0.00099999999985574,-6.9077552791264,TRUE,FALSE,FALSE,"","one",101,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_one",535.3926977769,9.99999999732957e-07,-13.8155105582313,TRUE,FALSE,FALSE,"","one",101,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_one",405.957753757411,0.049999999994545,-2.99573227366309,TRUE,FALSE,FALSE,"","one",101,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_one",455.179445661943,0.000999999999790616,-6.90775527919152,TRUE,FALSE,FALSE,"","one",101,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_one",509.815796308813,9.99999999717357e-07,-13.8155105582469,TRUE,FALSE,FALSE,"","one",101,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_two",445.138038710392,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",51,103.98747990462,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_two",491.987954271537,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",51,103.98747990462,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_two",543.069592644999,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",51,103.98747990462,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_two",403.768953482907,0.0499999999945165,-2.99573227366366,TRUE,FALSE,FALSE,"","two",2601,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_two",455.50266732037,0.000999999999820416,-6.90775527916172,TRUE,FALSE,FALSE,"","two",2601,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_two",513.569643677434,9.99999999736618e-07,-13.8155105582277,TRUE,FALSE,FALSE,"","two",2601,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_two",401.07941211729,0.0499999999943153,-2.99573227366768,TRUE,FALSE,FALSE,"","two",2601,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_two",451.106313940952,0.000999999999817716,-6.90775527916442,TRUE,FALSE,FALSE,"","two",2601,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_two",506.583773610566,9.99999999705875e-07,-13.8155105582584,TRUE,FALSE,FALSE,"","two",2601,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_three",428.486963638063,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","three",1156,71.7456028399247,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_three",477.180282792838,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","three",1156,71.7456028399247,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_three",530.014521125794,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","three",1156,71.7456028399247,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_three",400.751225878341,0.0499999999944804,-2.99573227366438,TRUE,FALSE,FALSE,"","three",40460,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_three",451.653226524081,0.000999999999815328,-6.90775527916681,TRUE,FALSE,FALSE,"","three",40460,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_three",508.370360626646,9.99999999716441e-07,-13.8155105582478,TRUE,FALSE,FALSE,"","three",40460,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_three",399.157016124024,0.0499999999943247,-2.9957322736675,TRUE,FALSE,FALSE,"","three",40460,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_three",449.404038641844,0.000999999999814225,-6.90775527916791,TRUE,FALSE,FALSE,"","three",40460,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_three",505.159727200665,9.99999999708749e-07,-13.8155105582555,TRUE,FALSE,FALSE,"","three",40460,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain1",486.963294162826,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,190.462413707991,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_retain1",530.663888950669,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,190.462413707991,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain1",575.533994891789,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,190.462413707991,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain1",413.117425844737,0.0499999999950028,-2.99573227365394,TRUE,FALSE,FALSE,"","retain1",200,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain1",471.640880594082,0.00099999999984574,-6.9077552791364,TRUE,FALSE,FALSE,"","retain1",200,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain1",534.765437083393,9.99999999751792e-07,-13.8155105582125,TRUE,FALSE,FALSE,"","retain1",200,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain1",405.863611582366,0.0499999999940783,-2.99573227367243,TRUE,FALSE,FALSE,"","retain1",200,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain1",455.132080524412,0.000999999999818379,-6.90775527916376,TRUE,FALSE,FALSE,"","retain1",200,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain1",509.739545112478,9.99999999707461e-07,-13.8155105582568,TRUE,FALSE,FALSE,"","retain1",200,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain2",486.221840047937,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,187.58360714879,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_retain2",530.663888950669,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,187.58360714879,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain2",575.533994891789,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,187.58360714879,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain2",412.872990324,0.0499999999949768,-2.99573227365445,TRUE,FALSE,FALSE,"","retain2",396,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain2",471.171677437255,0.000999999999838442,-6.90775527914369,TRUE,FALSE,FALSE,"","retain2",396,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain2",534.154850744395,9.99999999746449e-07,-13.8155105582178,TRUE,FALSE,FALSE,"","retain2",396,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain2",405.731968925666,0.0499999999944269,-2.99573227366545,TRUE,FALSE,FALSE,"","retain2",396,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain2",455.006510656175,0.000999999999808138,-6.907755279174,TRUE,FALSE,FALSE,"","retain2",396,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain2",509.687045324146,9.9999999969722e-07,-13.8155105582671,TRUE,FALSE,FALSE,"","retain2",396,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain4",483.444034861233,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,181.835254410382,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_retain4",526.731110931972,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,181.835254410382,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain4",575.533994891789,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,181.835254410382,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain4",412.400369400756,0.0499999999950207,-2.99573227365358,TRUE,FALSE,FALSE,"","retain4",1552,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain4",470.265438224586,0.00099999999984103,-6.90775527914111,TRUE,FALSE,FALSE,"","retain4",1552,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain4",533.071000824845,9.99999999749571e-07,-13.8155105582147,TRUE,FALSE,FALSE,"","retain4",1552,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain4",405.53019945098,0.0499999999944612,-2.99573227366477,TRUE,FALSE,FALSE,"","retain4",1552,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain4",454.840272011169,0.000999999999814509,-6.90775527916763,TRUE,FALSE,FALSE,"","retain4",1552,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain4",509.602304952974,9.99999999708355e-07,-13.8155105582559,TRUE,FALSE,FALSE,"","retain4",1552,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_auto",415.904339828417,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",63000,46.1360533491772,"sqrt100",0.05,"Count envelope",NA
+2,0.999,"grouped_auto",464.952186787337,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",63000,46.1360533491772,"sqrt100",0.001,"Count envelope",NA
+3,0.999999,"grouped_auto",518.337040160466,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",63000,46.1360533491772,"sqrt100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1953000,NA,"sqrt100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1953000,NA,"sqrt100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1953000,NA,"sqrt100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1953000,NA,"sqrt100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1953000,NA,"sqrt100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1953000,NA,"sqrt100",1e-06,"Conditional MGF",NA
+1,0.95,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0
+2,0.999,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",0
+3,0.999999,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",0
+1,0.95,"endpoint",99.0500000000085,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",7.88860905221012e-31
+2,0.999,"endpoint",99.0500000000085,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",7.88860905221012e-31
+3,0.999999,"endpoint",99.0500000000085,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",7.88860905221012e-31
+1,0.95,"chernoff",62.182192720728,0.0499999999997393,-2.99573227355921,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.00646583541870454
+2,0.999,"chernoff",68.3744053736522,0.000999999999993341,-6.9077552789888,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",9.18964922819276e-05
+3,0.999999,"chernoff",75.6667060553306,9.99999999991255e-07,-13.815510557973,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",9.02720871344874e-08
+1,0.95,"hoeffding",62.2439355403458,0.0499999999999277,-2.99573227355544,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.00620967104949246
+2,0.999,"hoeffding",68.5925092898964,0.000999999999997774,-6.90775527898436,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",9.15099727045021e-05
+3,0.999999,"hoeffding",76.2937787963157,9.99999999996805e-07,-13.8155105579675,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",2.81454543870941e-08
+1,0.95,"cantelli",71.8037572442628,0.0499999999999847,-2.9957322735543,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",6.02140946459773e-06
+2,0.999,"cantelli",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",0
+3,0.999999,"cantelli",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",0
+1,0.95,"bernstein",62.7794071199442,0.0499999999999332,-2.99573227355533,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.00585464253280408
+2,0.999,"bernstein",69.840624061629,0.000999999999998029,-6.90775527898411,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",3.64982967913913e-05
+3,0.999999,"bernstein",78.8224136653105,9.99999999997295e-07,-13.815510557967,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",2.05821217466094e-09
+1,0.95,"binomial_p2",60.8452236241597,0.0499999999999268,-2.99573227355545,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.0166009779866847
+2,0.999,"binomial_p2",67.1769525835797,0.000999999999997837,-6.9077552789843,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",0.000227710012346981
+3,0.999999,"binomial_p2",74.7584527949612,9.99999999996558e-07,-13.8155105579677,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",2.76384512058006e-07
+1,0.95,"bentkus_gaussian",60.7606077304458,0.049999999999926,-2.99573227355547,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.0172656644605133
+2,0.999,"bentkus_gaussian",67.1007943732463,0.000999999999997794,-6.90775527898434,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",0.000258494471923833
+3,0.999999,"bentkus_gaussian",74.920751949385,9.99999999996862e-07,-13.8155105579674,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",2.30446341120232e-07
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near100",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near100",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near100",1e-06,"Concentration",NA
+1,0.95,"pinelis",61.0071297553183,0.0499999999999254,-2.99573227355548,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.0139051360870306
+2,0.999,"pinelis",67.2318076481374,0.000999999999997759,-6.90775527898438,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",0.000215235717279301
+3,0.999999,"pinelis",74.9139514365476,9.99999999996807e-07,-13.8155105579675,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",2.33886775176184e-07
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near100",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near100",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near100",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",65.8181080438791,0.0499999999999792,-2.99573227355441,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.05,"Concentration",0.000851435466322131
+2,0.999,"symmetric_chebyshev",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",0.001,"Concentration",0
+3,0.999999,"symmetric_chebyshev",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100",1e-06,"Concentration",0
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"near100",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"near100",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"near100",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"near100",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"near100",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"near100",1e-06,"Concentration",NA
+1,0.95,"grid",58.1240234375028,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.0488281250042635,"near100",0.05,"Grid",0.0487040749463436
+2,0.999,"grid",65.1953125000028,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.0488281250042635,"near100",0.001,"Grid",0.000965740688721993
+3,0.999999,"grid",73.1953125000028,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.0488281250042635,"near100",1e-06,"Grid",9.35495715332775e-07
+1,0.95,"grouped_one",59.2303030303059,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,2.52525252525537,"near100",0.05,"Count envelope",0.0293193217563067
+2,0.999,"grouped_one",66.1489898989927,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,2.52525252525537,"near100",0.001,"Count envelope",0.00050207311834648
+3,0.999999,"grouped_one",73.9954545454574,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,2.52525252525537,"near100",1e-06,"Count envelope",5.65482336528453e-07
+1,0.95,"conditional_moments_one",58.2471478949806,0.0499999999902539,-2.99573227374891,TRUE,FALSE,FALSE,"","one",101,NA,"near100",0.05,"Conditional moments",0.0452912810096262
+2,0.999,"conditional_moments_one",65.3756890921946,0.000999999999860288,-6.90775527912185,TRUE,FALSE,FALSE,"","one",101,NA,"near100",0.001,"Conditional moments",0.000897882480350254
+3,0.999999,"conditional_moments_one",73.3701378376607,9.99999999772438e-07,-13.8155105581918,TRUE,FALSE,FALSE,"","one",101,NA,"near100",1e-06,"Conditional moments",8.36755297824764e-07
+1,0.95,"conditional_mgf_one",58.2395646276071,0.0499999999833103,-2.99573227388778,TRUE,FALSE,FALSE,"","one",101,NA,"near100",0.05,"Conditional MGF",0.0453977664484302
+2,0.999,"conditional_mgf_one",65.2854415867982,0.000999999999580046,-6.90775527940209,TRUE,FALSE,FALSE,"","one",101,NA,"near100",0.001,"Conditional MGF",0.000912425542791812
+3,0.999999,"conditional_mgf_one",73.273442766537,9.99999999094119e-07,-13.8155105588702,TRUE,FALSE,FALSE,"","one",101,NA,"near100",1e-06,"Conditional MGF",8.60017294754027e-07
+1,0.95,"grouped_two",58.7121212121241,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",51,1.2626262626291,"near100",0.05,"Count envelope",0.0439524876228627
+2,0.999,"grouped_two",65.6944444444473,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",51,1.2626262626291,"near100",0.001,"Count envelope",0.000888731234955354
+3,0.999999,"grouped_two",73.6176767676796,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",51,1.2626262626291,"near100",1e-06,"Count envelope",8.32969887308795e-07
+1,0.95,"conditional_moments_two",58.191324083865,0.0499999999871634,-2.99573227381072,TRUE,FALSE,FALSE,"","two",2601,NA,"near100",0.05,"Conditional moments",0.0463924678251483
+2,0.999,"conditional_moments_two",65.2655148835185,0.000999999999682437,-6.9077552792997,TRUE,FALSE,FALSE,"","two",2601,NA,"near100",0.001,"Conditional moments",0.000919622478691291
+3,0.999999,"conditional_moments_two",73.2560334331177,9.99999999455856e-07,-13.8155105585084,TRUE,FALSE,FALSE,"","two",2601,NA,"near100",1e-06,"Conditional moments",8.7080310368809e-07
+1,0.95,"conditional_mgf_two",58.1726908151766,0.0499999999840194,-2.9957322738736,TRUE,FALSE,FALSE,"","two",2601,NA,"near100",0.05,"Conditional MGF",0.0469315272157182
+2,0.999,"conditional_mgf_two",65.2341703190846,0.00099999999968899,-6.90775527929315,TRUE,FALSE,FALSE,"","two",2601,NA,"near100",0.001,"Conditional MGF",0.000935450115238568
+3,0.999999,"conditional_mgf_two",73.2244545460798,9.99999999392589e-07,-13.8155105585717,TRUE,FALSE,FALSE,"","two",2601,NA,"near100",1e-06,"Conditional MGF",8.97810788533006e-07
+1,0.95,"grouped_three",58.4939393939422,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","three",1156,0.841414141416983,"near100",0.05,"Count envelope",0.0443160103587668
+2,0.999,"grouped_three",65.5328282828311,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","three",1156,0.841414141416983,"near100",0.001,"Count envelope",0.000894862407203184
+3,0.999999,"grouped_three",73.4803030303059,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","three",1156,0.841414141416983,"near100",1e-06,"Count envelope",8.33788882811784e-07
+1,0.95,"conditional_moments_three",58.1616431077384,0.0499999999863342,-2.99573227382731,TRUE,FALSE,FALSE,"","three",40460,NA,"near100",0.05,"Conditional moments",0.0472516217120037
+2,0.999,"conditional_moments_three",65.2302590757337,0.000999999999667871,-6.90775527931427,TRUE,FALSE,FALSE,"","three",40460,NA,"near100",0.001,"Conditional moments",0.000937978956438115
+3,0.999999,"conditional_moments_three",73.2221511573373,9.99999999416865e-07,-13.8155105585474,TRUE,FALSE,FALSE,"","three",40460,NA,"near100",1e-06,"Conditional moments",8.99987725775892e-07
+1,0.95,"conditional_mgf_three",58.14765796047,0.049999999985619,-2.99573227384161,TRUE,FALSE,FALSE,"","three",40460,NA,"near100",0.05,"Conditional MGF",0.0477430879653389
+2,0.999,"conditional_mgf_three",65.2118573205628,0.000999999999623779,-6.90775527935836,TRUE,FALSE,FALSE,"","three",40460,NA,"near100",0.001,"Conditional MGF",0.000950933236768584
+3,0.999999,"conditional_mgf_three",73.2051568484287,9.99999999333956e-07,-13.8155105586303,TRUE,FALSE,FALSE,"","three",40460,NA,"near100",1e-06,"Conditional MGF",9.2095111328112e-07
+1,0.95,"grouped_retain1",59.2303030303059,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,2.47474747475032,"near100",0.05,"Count envelope",0.0293193217563067
+2,0.999,"grouped_retain1",66.1489898989927,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,2.47474747475032,"near100",0.001,"Count envelope",0.00050207311834648
+3,0.999999,"grouped_retain1",73.9954545454574,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,2.47474747475032,"near100",1e-06,"Count envelope",5.65482336528453e-07
+1,0.95,"conditional_moments_retain1",58.245933348798,0.0499999999900849,-2.99573227375229,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100",0.05,"Conditional moments",0.045305960869402
+2,0.999,"conditional_moments_retain1",65.3720560520517,0.000999999999857738,-6.9077552791244,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100",0.001,"Conditional moments",0.000898156225146949
+3,0.999999,"conditional_moments_retain1",73.3664112218342,9.99999999768369e-07,-13.8155105581959,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100",1e-06,"Conditional moments",8.37001173251872e-07
+1,0.95,"conditional_mgf_retain1",58.233793103918,0.0499999999858443,-2.99573227383711,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100",0.05,"Conditional MGF",0.0454961669596969
+2,0.999,"conditional_mgf_retain1",65.2843336653927,0.00099999999954608,-6.90775527943606,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100",0.001,"Conditional MGF",0.000913055092901634
+3,0.999999,"conditional_mgf_retain1",73.2716824601819,9.99999999299118e-07,-13.8155105586652,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100",1e-06,"Conditional MGF",8.61067378914392e-07
+1,0.95,"grouped_retain2",59.2303030303059,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,2.42525252525537,"near100",0.05,"Count envelope",0.0293193217563067
+2,0.999,"grouped_retain2",66.1489898989927,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,2.42525252525537,"near100",0.001,"Count envelope",0.00050207311834648
+3,0.999999,"grouped_retain2",73.9954545454574,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,2.42525252525537,"near100",1e-06,"Count envelope",5.65482336528453e-07
+1,0.95,"conditional_moments_retain2",58.2447557641109,0.0499999999899145,-2.9957322737557,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100",0.05,"Conditional moments",0.0453208159476877
+2,0.999,"conditional_moments_retain2",65.3684773599037,0.000999999999855097,-6.90775527912704,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100",0.001,"Conditional moments",0.000898376273365708
+3,0.999999,"conditional_moments_retain2",73.3627345090654,9.99999999764162e-07,-13.8155105582001,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100",1e-06,"Conditional moments",8.37356306045253e-07
+1,0.95,"conditional_mgf_retain2",58.2315935549003,0.0499999999839002,-2.99573227387599,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100",0.05,"Conditional MGF",0.0455304817106229
+2,0.999,"conditional_mgf_retain2",65.2844002488607,0.000999999999541258,-6.90775527944088,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100",0.001,"Conditional MGF",0.000912737981942097
+3,0.999999,"conditional_mgf_retain2",73.2698565619217,9.99999999259375e-07,-13.8155105587049,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100",1e-06,"Conditional MGF",8.62152474168479e-07
+1,0.95,"grouped_retain4",59.1737373737402,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,2.32727272727557,"near100",0.05,"Count envelope",0.0302624371611816
+2,0.999,"grouped_retain4",66.1489898989927,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,2.32727272727557,"near100",0.001,"Count envelope",0.00050207311834648
+3,0.999999,"grouped_retain4",73.9954545454574,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,2.32727272727557,"near100",1e-06,"Count envelope",5.65482336528453e-07
+1,0.95,"conditional_moments_retain4",58.2424981283663,0.0499999999895747,-2.9957322737625,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100",0.05,"Conditional moments",0.0453510571395315
+2,0.999,"conditional_moments_retain4",65.3614888627267,0.000999999999849533,-6.9077552791326,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100",0.001,"Conditional moments",0.0008989426196174
+3,0.999999,"conditional_moments_retain4",73.3554823305814,9.99999999754497e-07,-13.8155105582098,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100",1e-06,"Conditional moments",8.38060067876841e-07
+1,0.95,"conditional_mgf_retain4",58.2258882324173,0.049999999984157,-2.99573227387085,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100",0.05,"Conditional MGF",0.0456381146663626
+2,0.999,"conditional_mgf_retain4",65.2819353768664,0.000999999999631111,-6.90775527935103,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100",0.001,"Conditional MGF",0.000913703541694042
+3,0.999999,"conditional_mgf_retain4",73.2684317394537,9.99999999195135e-07,-13.8155105587691,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100",1e-06,"Conditional MGF",8.62708423625481e-07
+1,0.95,"grouped_auto",58.3757575757604,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",62400,0.595959595962438,"near100",0.05,"Count envelope",0.0444117361924296
+2,0.999,"grouped_auto",65.4227272727301,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",62400,0.595959595962438,"near100",0.001,"Count envelope",0.000895910994788969
+3,0.999999,"grouped_auto",73.3843434343463,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",62400,0.595959595962438,"near100",1e-06,"Count envelope",8.35753907188837e-07
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100",1e-06,"Conditional MGF",NA
+1,0.95,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0
+2,0.999,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0
+3,0.999999,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",0
+1,0.95,"endpoint",99.5000000000085,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",7.88860905221012e-31
+2,0.999,"endpoint",99.5000000000085,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",7.88860905221012e-31
+3,0.999999,"endpoint",99.5000000000085,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",7.88860905221012e-31
+1,0.95,"chernoff",62.6655903336335,0.0499999999997429,-2.99573227355913,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.00735587439716561
+2,0.999,"chernoff",69.0665923067151,0.000999999999993432,-6.9077552789887,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0.000105823213675789
+3,0.999999,"chernoff",76.5405293887167,9.99999999991337e-07,-13.8155105579729,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",8.09697586963536e-08
+1,0.95,"hoeffding",62.7483723471152,0.0499999999999304,-2.99573227355538,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.00702158928659461
+2,0.999,"hoeffding",69.358500419556,0.00099999999999786,-6.90775527898428,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",8.41313468792248e-05
+3,0.999999,"hoeffding",77.3770538405378,9.99999999996917e-07,-13.8155105579674,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",3.06766645100717e-08
+1,0.95,"cantelli",72.7020482915844,0.0499999999999853,-2.99573227355429,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",4.47324544288169e-06
+2,0.999,"cantelli",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0
+3,0.999999,"cantelli",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",0
+1,0.95,"bernstein",63.5192853830907,0.0499999999999377,-2.99573227355524,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.00457751525262598
+2,0.999,"bernstein",71.1623152293008,0.000999999999998182,-6.90775527898395,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",1.83565879039354e-05
+3,0.999999,"bernstein",81.0479412716618,9.9999999999754e-07,-13.8155105579667,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",2.66462934104132e-10
+1,0.95,"binomial_p2",61.508711663432,0.0499999999999332,-2.99573227355533,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.0134116353001908
+2,0.999,"binomial_p2",68.4975685079309,0.000999999999997952,-6.90775527898418,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0.000165043367767376
+3,0.999999,"binomial_p2",77.1144522237503,9.9999999999722e-07,-13.8155105579671,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",4.18217897890931e-08
+1,0.95,"bentkus_gaussian",61.2039330472574,0.0499999999999286,-2.99573227355542,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.0155742062267688
+2,0.999,"bentkus_gaussian",67.8053284732861,0.000999999999997881,-6.90775527898426,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0.000277794682463904
+3,0.999999,"bentkus_gaussian",75.9474597831711,9.99999999996975e-07,-13.8155105579673,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",1.58471399781483e-07
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"wide100",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"wide100",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"wide100",1e-06,"Concentration",NA
+1,0.95,"pinelis",61.4606115110147,0.0499999999999281,-2.99573227355543,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.0137186074644754
+2,0.999,"pinelis",67.9417393523881,0.000999999999997835,-6.9077552789843,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0.000251094110098941
+3,0.999999,"pinelis",75.9403790966127,9.99999999996933e-07,-13.8155105579673,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",1.59362868890833e-07
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"wide100",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"wide100",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"wide100",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",66.4697968643974,0.0499999999999799,-2.99573227355439,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.05,"Concentration",0.00071714439939169
+2,0.999,"symmetric_chebyshev",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",0.001,"Concentration",0
+3,0.999999,"symmetric_chebyshev",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"wide100",1e-06,"Concentration",0
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"wide100",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"wide100",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"wide100",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"wide100",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"wide100",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"wide100",1e-06,"Concentration",NA
+1,0.95,"grid",58.5976562500028,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.0478515625042643,"wide100",0.05,"Grid",0.0494253146448632
+2,0.999,"grid",66.0107421875028,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.0478515625042643,"wide100",0.001,"Grid",0.000978233508481874
+3,0.999999,"grid",74.2558593750028,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.0478515625042643,"wide100",1e-06,"Grid",9.65740544433601e-07
+1,0.95,"grouped_one",70.3030303030331,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,25.2525252525281,"wide100",0.05,"Count envelope",3.85004735864577e-05
+2,0.999,"grouped_one",76.4898989899018,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,25.2525252525281,"wide100",0.001,"Count envelope",8.57731265587816e-08
+3,0.999999,"grouped_one",82.9545454545483,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,25.2525252525281,"wide100",1e-06,"Count envelope",1.62062410218078e-11
+1,0.95,"conditional_moments_one",60.7471582001981,0.0499999999946504,-2.99573227366098,TRUE,FALSE,FALSE,"","one",101,NA,"wide100",0.05,"Conditional moments",0.0194179661937203
+2,0.999,"conditional_moments_one",68.6164174420513,0.000999999999830153,-6.90775527915198,TRUE,FALSE,FALSE,"","one",101,NA,"wide100",0.001,"Conditional moments",0.000150348254566806
+3,0.999999,"conditional_moments_one",77.3628907631546,9.9999999974499e-07,-13.8155105582193,TRUE,FALSE,FALSE,"","one",101,NA,"wide100",1e-06,"Conditional moments",3.12333184674512e-08
+1,0.95,"conditional_mgf_one",60.0600564659359,0.0499999999948341,-2.99573227365731,TRUE,FALSE,FALSE,"","one",101,NA,"wide100",0.05,"Conditional MGF",0.026634280534743
+2,0.999,"conditional_mgf_one",67.3302641342732,0.000999999999796793,-6.90775527918534,TRUE,FALSE,FALSE,"","one",101,NA,"wide100",0.001,"Conditional MGF",0.00039259758027899
+3,0.999999,"conditional_mgf_one",75.3546636202944,9.99999999697183e-07,-13.8155105582671,TRUE,FALSE,FALSE,"","one",101,NA,"wide100",1e-06,"Conditional MGF",3.02840625341507e-07
+1,0.95,"grouped_two",64.6464646464675,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",51,12.6262626262655,"wide100",0.05,"Count envelope",0.00234147102965914
+2,0.999,"grouped_two",71.4797979798008,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",51,12.6262626262655,"wide100",0.001,"Count envelope",1.383480688637e-05
+3,0.999999,"grouped_two",78.9494949494978,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",51,12.6262626262655,"wide100",1e-06,"Count envelope",4.40861702369846e-09
+1,0.95,"conditional_moments_two",59.5965288828151,0.0499999999944404,-2.99573227366518,TRUE,FALSE,FALSE,"","two",2601,NA,"wide100",0.05,"Conditional moments",0.0326098658967693
+2,0.999,"conditional_moments_two",67.0416945339979,0.000999999999814405,-6.90775527916773,TRUE,FALSE,FALSE,"","two",2601,NA,"wide100",0.001,"Conditional moments",0.00048206958887545
+3,0.999999,"conditional_moments_two",75.3193308347205,9.99999999712373e-07,-13.8155105582519,TRUE,FALSE,FALSE,"","two",2601,NA,"wide100",1e-06,"Conditional moments",3.14627623431527e-07
+1,0.95,"conditional_mgf_two",59.3571831591222,0.0499999999944322,-2.99573227366535,TRUE,FALSE,FALSE,"","two",2601,NA,"wide100",0.05,"Conditional MGF",0.0361797859109606
+2,0.999,"conditional_mgf_two",66.7071768952255,0.000999999999800139,-6.907755279182,TRUE,FALSE,FALSE,"","two",2601,NA,"wide100",0.001,"Conditional MGF",0.000608899018997632
+3,0.999999,"conditional_mgf_two",74.8680102569013,9.99999999697034e-07,-13.8155105582672,TRUE,FALSE,FALSE,"","two",2601,NA,"wide100",1e-06,"Conditional MGF",5.11158117350107e-07
+1,0.95,"grouped_three",62.5808080808109,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","three",1156,8.41414141414425,"wide100",0.05,"Count envelope",0.00768313913324656
+2,0.999,"grouped_three",69.6565656565685,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","three",1156,8.41414141414425,"wide100",0.001,"Count envelope",6.5832151897395e-05
+3,0.999999,"grouped_three",77.3989898989927,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","three",1156,8.41414141414425,"wide100",1e-06,"Count envelope",2.97701647768977e-08
+1,0.95,"conditional_moments_three",59.2432326600083,0.0499999999947835,-2.99573227365832,TRUE,FALSE,FALSE,"","three",40460,NA,"wide100",0.05,"Conditional moments",0.0379190563616714
+2,0.999,"conditional_moments_three",66.6537177866586,0.000999999999810355,-6.90775527917178,TRUE,FALSE,FALSE,"","three",40460,NA,"wide100",0.001,"Conditional moments",0.000632796188598656
+3,0.999999,"conditional_moments_three",74.8774072508328,9.99999999709071e-07,-13.8155105582552,TRUE,FALSE,FALSE,"","three",40460,NA,"wide100",1e-06,"Conditional moments",5.05732268424925e-07
+1,0.95,"conditional_mgf_three",59.0986627973531,0.0499999999940172,-2.99573227367365,TRUE,FALSE,FALSE,"","three",40460,NA,"wide100",0.05,"Conditional MGF",0.0403146317711735
+2,0.999,"conditional_mgf_three",66.4748529995283,0.000999999999811796,-6.90775527917034,TRUE,FALSE,FALSE,"","three",40460,NA,"wide100",0.001,"Conditional MGF",0.00071466891245348
+3,0.999999,"conditional_mgf_three",74.6739129598689,9.99999999689136e-07,-13.8155105582751,TRUE,FALSE,FALSE,"","three",40460,NA,"wide100",1e-06,"Conditional MGF",6.25450797857383e-07
+1,0.95,"grouped_retain1",70.3030303030331,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,24.7474747474776,"wide100",0.05,"Count envelope",3.85004735864577e-05
+2,0.999,"grouped_retain1",76.4898989899018,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,24.7474747474776,"wide100",0.001,"Count envelope",8.57731265587816e-08
+3,0.999999,"grouped_retain1",82.9545454545483,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,24.7474747474776,"wide100",1e-06,"Count envelope",1.62062410218078e-11
+1,0.95,"conditional_moments_retain1",60.7151763027568,0.0499999999944543,-2.9957322736649,TRUE,FALSE,FALSE,"","retain1",200,NA,"wide100",0.05,"Conditional moments",0.019697343240515
+2,0.999,"conditional_moments_retain1",68.5592485368586,0.00099999999982021,-6.90775527916193,TRUE,FALSE,FALSE,"","retain1",200,NA,"wide100",0.001,"Conditional moments",0.000157536601761024
+3,0.999999,"conditional_moments_retain1",77.2886994193498,9.99999999730504e-07,-13.8155105582338,TRUE,FALSE,FALSE,"","retain1",200,NA,"wide100",1e-06,"Conditional moments",3.39617158682746e-08
+1,0.95,"conditional_mgf_retain1",60.0426547709197,0.0499999999940453,-2.99573227367309,TRUE,FALSE,FALSE,"","retain1",200,NA,"wide100",0.05,"Conditional MGF",0.0268156849114331
+2,0.999,"conditional_mgf_retain1",67.306120682992,0.000999999999818523,-6.90775527916361,TRUE,FALSE,FALSE,"","retain1",200,NA,"wide100",0.001,"Conditional MGF",0.000399785234109852
+3,0.999999,"conditional_mgf_retain1",75.3468142004665,9.99999999686523e-07,-13.8155105582778,TRUE,FALSE,FALSE,"","retain1",200,NA,"wide100",1e-06,"Conditional MGF",3.06164416477646e-07
+1,0.95,"grouped_retain2",70.0252525252554,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,24.2525252525281,"wide100",0.05,"Count envelope",4.85884136307438e-05
+2,0.999,"grouped_retain2",76.4898989899018,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,24.2525252525281,"wide100",0.001,"Count envelope",8.57731265587816e-08
+3,0.999999,"grouped_retain2",82.9545454545483,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,24.2525252525281,"wide100",1e-06,"Count envelope",1.62062410218078e-11
+1,0.95,"conditional_moments_retain2",60.6793863718964,0.0499999999946016,-2.99573227366196,TRUE,FALSE,FALSE,"","retain2",396,NA,"wide100",0.05,"Conditional moments",0.020027556449634
+2,0.999,"conditional_moments_retain2",68.508258590469,0.000999999999827646,-6.90775527915449,TRUE,FALSE,FALSE,"","retain2",396,NA,"wide100",0.001,"Conditional moments",0.000163769587561416
+3,0.999999,"conditional_moments_retain2",77.2177062958755,9.99999999720272e-07,-13.815510558244,TRUE,FALSE,FALSE,"","retain2",396,NA,"wide100",1e-06,"Conditional moments",3.69184069719623e-08
+1,0.95,"conditional_mgf_retain2",60.0243057333147,0.0499999999944297,-2.9957322736654,TRUE,FALSE,FALSE,"","retain2",396,NA,"wide100",0.05,"Conditional MGF",0.0270591471422854
+2,0.999,"conditional_mgf_retain2",67.2764878661593,0.000999999999810795,-6.90775527917134,TRUE,FALSE,FALSE,"","retain2",396,NA,"wide100",0.001,"Conditional MGF",0.000408570671243666
+3,0.999999,"conditional_mgf_retain2",75.3414545894635,9.99999999681912e-07,-13.8155105582824,TRUE,FALSE,FALSE,"","retain2",396,NA,"wide100",1e-06,"Conditional MGF",3.07839777457466e-07
+1,0.95,"grouped_retain4",69.7171717171746,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,23.2727272727301,"wide100",0.05,"Count envelope",6.26512050337968e-05
+2,0.999,"grouped_retain4",75.8636363636392,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,23.2727272727301,"wide100",0.001,"Count envelope",1.73330333909854e-07
+3,0.999999,"grouped_retain4",82.9545454545483,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,23.2727272727301,"wide100",1e-06,"Count envelope",1.62062410218078e-11
+1,0.95,"conditional_moments_retain4",60.6084564969754,0.0499999999944397,-2.9957322736652,TRUE,FALSE,FALSE,"","retain4",1552,NA,"wide100",0.05,"Conditional moments",0.0207019975749187
+2,0.999,"conditional_moments_retain4",68.3980836407316,0.000999999999817299,-6.90775527916484,TRUE,FALSE,FALSE,"","retain4",1552,NA,"wide100",0.001,"Conditional moments",0.000178297378976486
+3,0.999999,"conditional_moments_retain4",77.0850988168774,9.99999999725983e-07,-13.8155105582383,TRUE,FALSE,FALSE,"","retain4",1552,NA,"wide100",1e-06,"Conditional moments",4.33339452743515e-08
+1,0.95,"conditional_mgf_retain4",59.9890331828706,0.0499999999943489,-2.99573227366701,TRUE,FALSE,FALSE,"","retain4",1552,NA,"wide100",0.05,"Conditional MGF",0.0274896112850417
+2,0.999,"conditional_mgf_retain4",67.2490620786756,0.000999999999811877,-6.90775527917026,TRUE,FALSE,FALSE,"","retain4",1552,NA,"wide100",0.001,"Conditional MGF",0.000416027595429416
+3,0.999999,"conditional_mgf_retain4",75.3109107663763,9.99999999706031e-07,-13.8155105582582,TRUE,FALSE,FALSE,"","retain4",1552,NA,"wide100",1e-06,"Conditional MGF",3.1807500010431e-07
+1,0.95,"grouped_auto",61.3636363636392,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",62400,5.9595959595988,"wide100",0.05,"Count envelope",0.0143864839747054
+2,0.999,"grouped_auto",68.5606060606089,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",62400,5.9595959595988,"wide100",0.001,"Count envelope",0.00015692551897979
+3,0.999999,"grouped_auto",76.4191919191948,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",62400,5.9595959595988,"wide100",1e-06,"Count envelope",9.29592714957738e-08
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"wide100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"wide100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"wide100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"wide100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"wide100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"wide100",1e-06,"Conditional MGF",NA
+1,0.95,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",0
+2,0.999,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",0
+3,0.999999,"support",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",0
+1,0.95,"endpoint",99.0500000000085,1.00000000000331e-100,-230.258509299401,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",1.00000000000001e-100
+2,0.999,"endpoint",99.0500000000085,1.00000000000331e-100,-230.258509299401,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",1.00000000000001e-100
+3,0.999999,"endpoint",99.0500000000085,1.00000000000331e-100,-230.258509299401,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",1.00000000000001e-100
+1,0.95,"chernoff",18.0760053637729,0.0499999999997387,-2.99573227355922,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",0.00594106409183259
+2,0.999,"chernoff",22.7661372432956,0.000999999999993619,-6.90775527898852,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",0.000112031158774376
+3,0.999999,"chernoff",28.8379688823163,9.99999999992188e-07,-13.8155105579721,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",8.65440260530331e-08
+1,0.95,"hoeffding",22.2439355403458,0.0499999999999277,-2.99573227355544,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",0.000118500334893943
+2,0.999,"hoeffding",28.5925092898964,0.000999999999997777,-6.90775527898436,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",9.43715434549657e-08
+3,0.999999,"hoeffding",36.2937787963157,9.99999999996805e-07,-13.8155105579675,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",5.90667284878011e-13
+1,0.95,"cantelli",23.0822543465611,0.0499999999999765,-2.99573227355446,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",5.8624751735779e-05
+2,0.999,"cantelli",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",0
+3,0.999999,"cantelli",100.000000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",0
+1,0.95,"bernstein",18.350376311783,0.0499999999999068,-2.99573227355586,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",0.00458480418847894
+2,0.999,"bernstein",23.5416823155909,0.000999999999997454,-6.90775527898468,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",3.96353029409435e-05
+3,0.999999,"bernstein",30.717383663002,9.99999999996796e-07,-13.8155105579675,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",5.96294893119488e-09
+1,0.95,"binomial_p2",17.0209771167142,0.0499999999999007,-2.99573227355598,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.05,"Concentration",0.0145010656340557
+2,0.999,"binomial_p2",21.7214220057097,0.000999999999997054,-6.90775527898508,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",0.001,"Concentration",0.000309828162873064
+3,0.999999,"binomial_p2",27.8903503411115,9.99999999996149e-07,-13.8155105579681,TRUE,FALSE,FALSE,"","",NA,NA,"near100_rare",1e-06,"Concentration",2.96507660102167e-07
+1,0.95,"bentkus_gaussian",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"pinelis",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"pinelis",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"pinelis",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"symmetric_chebyshev",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"symmetric_chebyshev",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"near100_rare",1e-06,"Concentration",NA
+1,0.95,"grid",15.0595703125028,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.0488281250042635,"near100_rare",0.05,"Grid",0.049246971183516
+2,0.999,"grid",20.1250000000028,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.0488281250042635,"near100_rare",0.001,"Grid",0.000977152186852198
+3,0.999999,"grid",26.9277343750028,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.0488281250042635,"near100_rare",1e-06,"Grid",9.70722628966092e-07
+1,0.95,"grouped_one",15.6439393939422,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,2.52525252525537,"near100_rare",0.05,"Count envelope",0.0398843427225325
+2,0.999,"grouped_one",20.8080808080837,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,2.52525252525537,"near100_rare",0.001,"Count envelope",0.000780749782605363
+3,0.999999,"grouped_one",27.9954545454574,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,2.52525252525537,"near100_rare",1e-06,"Count envelope",2.24765535648726e-07
+1,0.95,"conditional_moments_one",15.1563579663252,0.0499999999746129,-2.99573227406173,TRUE,FALSE,FALSE,"","one",101,NA,"near100_rare",0.05,"Conditional moments",0.042107140183063
+2,0.999,"conditional_moments_one",20.2643362746048,0.000999999999654091,-6.90775527932805,TRUE,FALSE,FALSE,"","one",101,NA,"near100_rare",0.001,"Conditional moments",0.000821290093415094
+3,0.999999,"conditional_moments_one",27.0762554794708,9.99999998757293e-07,-13.815510559207,TRUE,FALSE,FALSE,"","one",101,NA,"near100_rare",1e-06,"Conditional moments",5.94464901001848e-07
+1,0.95,"conditional_mgf_one",15.1563579663252,0.0499999999746129,-2.99573227406173,TRUE,FALSE,FALSE,"","one",101,NA,"near100_rare",0.05,"Conditional MGF",0.042107140183063
+2,0.999,"conditional_mgf_one",20.2225547308645,0.000999999998952105,-6.90775528003003,TRUE,FALSE,FALSE,"","one",101,NA,"near100_rare",0.001,"Conditional MGF",0.000840950375877071
+3,0.999999,"conditional_mgf_one",27.0762554794708,9.99999998757293e-07,-13.815510559207,TRUE,FALSE,FALSE,"","one",101,NA,"near100_rare",1e-06,"Conditional MGF",5.94464901001848e-07
+1,0.95,"grouped_two",15.3469696969725,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",51,1.2626262626291,"near100_rare",0.05,"Count envelope",0.0399004546582596
+2,0.999,"grouped_two",20.5010101010129,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",51,1.2626262626291,"near100_rare",0.001,"Count envelope",0.000807574860652128
+3,0.999999,"grouped_two",27.4196969696998,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",51,1.2626262626291,"near100_rare",1e-06,"Count envelope",3.48591406948904e-07
+1,0.95,"conditional_moments_two",15.1199939104255,0.049999999970946,-2.99573227413507,TRUE,FALSE,FALSE,"","two",2601,NA,"near100_rare",0.05,"Conditional moments",0.0440324545402861
+2,0.999,"conditional_moments_two",20.1964785437593,0.000999999999360079,-6.90775527962206,TRUE,FALSE,FALSE,"","two",2601,NA,"near100_rare",0.001,"Conditional moments",0.000862551015373273
+3,0.999999,"conditional_moments_two",26.9984809301537,9.99999999304388e-07,-13.8155105586599,TRUE,FALSE,FALSE,"","two",2601,NA,"near100_rare",1e-06,"Conditional moments",7.91434914060687e-07
+1,0.95,"conditional_mgf_two",15.1089392472866,0.0499999999629644,-2.9957322742947,TRUE,FALSE,FALSE,"","two",2601,NA,"near100_rare",0.05,"Conditional MGF",0.0447993536394216
+2,0.999,"conditional_mgf_two",20.1742217017615,0.000999999999244191,-6.90775527973795,TRUE,FALSE,FALSE,"","two",2601,NA,"near100_rare",0.001,"Conditional MGF",0.000888368486252601
+3,0.999999,"conditional_mgf_two",26.9941072013951,9.99999999282123e-07,-13.8155105586822,TRUE,FALSE,FALSE,"","two",2601,NA,"near100_rare",1e-06,"Conditional MGF",8.02213584139105e-07
+1,0.95,"grouped_three",15.252020202023,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","three",1156,0.841414141416983,"near100_rare",0.05,"Count envelope",0.0401314401656525
+2,0.999,"grouped_three",20.37171717172,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","three",1156,0.841414141416983,"near100_rare",0.001,"Count envelope",0.000808270066920835
+3,0.999999,"grouped_three",27.2378787878816,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","three",1156,0.841414141416983,"near100_rare",1e-06,"Count envelope",3.77351451121261e-07
+1,0.95,"conditional_moments_three",15.0990403794106,0.0499999999705874,-2.99573227414224,TRUE,FALSE,FALSE,"","three",40460,NA,"near100_rare",0.05,"Conditional moments",0.0455721785743005
+2,0.999,"conditional_moments_three",20.1694079943368,0.00099999999929995,-6.90775527968219,TRUE,FALSE,FALSE,"","three",40460,NA,"near100_rare",0.001,"Conditional moments",0.00089534979487849
+3,0.999999,"conditional_moments_three",26.9708347378837,9.99999999384013e-07,-13.8155105585803,TRUE,FALSE,FALSE,"","three",40460,NA,"near100_rare",1e-06,"Conditional moments",8.63588377203e-07
+1,0.95,"conditional_mgf_three",15.0909820132391,0.0499999999682099,-2.99573227418979,TRUE,FALSE,FALSE,"","three",40460,NA,"near100_rare",0.05,"Conditional MGF",0.0462420499841588
+2,0.999,"conditional_mgf_three",20.1562137385962,0.000999999999256462,-6.90775527972568,TRUE,FALSE,FALSE,"","three",40460,NA,"near100_rare",0.001,"Conditional MGF",0.000915607522988698
+3,0.999999,"conditional_mgf_three",26.9658026475264,9.99999999367154e-07,-13.8155105585971,TRUE,FALSE,FALSE,"","three",40460,NA,"near100_rare",1e-06,"Conditional MGF",8.76680079197405e-07
+1,0.95,"grouped_retain1",15.6287878787907,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,2.47474747475032,"near100_rare",0.05,"Count envelope",0.0398871226243081
+2,0.999,"grouped_retain1",20.8080808080837,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,2.47474747475032,"near100_rare",0.001,"Count envelope",0.000780749782605363
+3,0.999999,"grouped_retain1",27.9681818181847,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,2.47474747475032,"near100_rare",1e-06,"Count envelope",2.45390440461779e-07
+1,0.95,"conditional_moments_retain1",15.1559883164217,0.0499999999742063,-2.99573227406986,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100_rare",0.05,"Conditional moments",0.0421493175992688
+2,0.999,"conditional_moments_retain1",20.2621937412795,0.00099999999964702,-6.90775527933512,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100_rare",0.001,"Conditional moments",0.000821941517948506
+3,0.999999,"conditional_moments_retain1",27.0746135988988,9.99999998837846e-07,-13.8155105591264,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100_rare",1e-06,"Conditional moments",5.96754438071471e-07
+1,0.95,"conditional_mgf_retain1",15.1556207590616,0.0499999999618505,-2.99573227431698,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100_rare",0.05,"Conditional MGF",0.0421493175992688
+2,0.999,"conditional_mgf_retain1",20.2200926219802,0.000999999999037924,-6.90775527994421,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100_rare",0.001,"Conditional MGF",0.000843017322824959
+3,0.999999,"conditional_mgf_retain1",27.0746135988988,9.99999998837846e-07,-13.8155105591264,TRUE,FALSE,FALSE,"","retain1",200,NA,"near100_rare",1e-06,"Conditional MGF",5.96754438071471e-07
+1,0.95,"grouped_retain2",15.6136363636392,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,2.42525252525537,"near100_rare",0.05,"Count envelope",0.0398887138409704
+2,0.999,"grouped_retain2",20.7888888888917,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,2.42525252525537,"near100_rare",0.001,"Count envelope",0.00078852877144562
+3,0.999999,"grouped_retain2",27.9409090909119,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,2.42525252525537,"near100_rare",1e-06,"Count envelope",2.65033065327855e-07
+1,0.95,"conditional_moments_retain2",15.1555901949898,0.0499999999738586,-2.99573227407682,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100_rare",0.05,"Conditional moments",0.0421493175992688
+2,0.999,"conditional_moments_retain2",20.2601036532667,0.000999999999639702,-6.90775527934244,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100_rare",0.001,"Conditional moments",0.00082261911157843
+3,0.999999,"conditional_moments_retain2",27.0723632335213,9.99999998900084e-07,-13.8155105590642,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100_rare",1e-06,"Conditional moments",6.01363456749016e-07
+1,0.95,"conditional_mgf_retain2",15.1528494117548,0.0499999999638078,-2.99573227427784,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100_rare",0.05,"Conditional MGF",0.0422794818140772
+2,0.999,"conditional_mgf_retain2",20.2178281997504,0.000999999999120836,-6.9077552798613,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100_rare",0.001,"Conditional MGF",0.000844452379802432
+3,0.999999,"conditional_mgf_retain2",27.0723632335213,9.99999998900084e-07,-13.8155105590642,TRUE,FALSE,FALSE,"","retain2",396,NA,"near100_rare",1e-06,"Conditional MGF",6.01363456749016e-07
+1,0.95,"grouped_retain4",15.5994949494978,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,2.32727272727557,"near100_rare",0.05,"Count envelope",0.039889551303344
+2,0.999,"grouped_retain4",20.7676767676796,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,2.32727272727557,"near100_rare",0.001,"Count envelope",0.000794903348643183
+3,0.999999,"grouped_retain4",27.8863636363665,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,2.32727272727557,"near100_rare",1e-06,"Count envelope",2.98679792834956e-07
+1,0.95,"conditional_moments_retain4",15.1546317917123,0.0499999999733353,-2.99573227408728,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100_rare",0.05,"Conditional moments",0.042192097440864
+2,0.999,"conditional_moments_retain4",20.2560796436008,0.0009999999996244,-6.90775527935774,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100_rare",0.001,"Conditional moments",0.000824056074105827
+3,0.999999,"conditional_moments_retain4",27.0683032183387,9.99999998990028e-07,-13.8155105589742,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100_rare",1e-06,"Conditional moments",6.10698611285542e-07
+1,0.95,"conditional_mgf_retain4",15.1476783926627,0.0499999999619842,-2.99573227431431,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100_rare",0.05,"Conditional MGF",0.0425087842077439
+2,0.999,"conditional_mgf_retain4",20.2148696798771,0.000999999999140524,-6.90775527984161,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100_rare",0.001,"Conditional MGF",0.000846693195948609
+3,0.999999,"conditional_mgf_retain4",27.0683032183387,9.99999998990028e-07,-13.8155105589742,TRUE,FALSE,FALSE,"","retain4",1552,NA,"near100_rare",1e-06,"Conditional MGF",6.10698611285542e-07
+1,0.95,"grouped_auto",15.1954545454574,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",62400,0.595959595962438,"near100_rare",0.05,"Count envelope",0.0408814226911945
+2,0.999,"grouped_auto",20.2929292929321,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",62400,0.595959595962438,"near100_rare",0.001,"Count envelope",0.000814322957926173
+3,0.999999,"grouped_auto",27.1449494949523,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",62400,0.595959595962438,"near100_rare",1e-06,"Count envelope",4.64313489168064e-07
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100_rare",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100_rare",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100_rare",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100_rare",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100_rare",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",1622400,NA,"near100_rare",1e-06,"Conditional MGF",NA
+1,0.95,"support",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"support",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"support",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"endpoint",5.17737751764006,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"endpoint",5.17737751764006,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"endpoint",5.17737751764006,7.88860905221795e-31,-69.3147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"chernoff",3.88662179368944,0.049999999999766,-2.99573227355867,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"chernoff",4.26410370242514,0.000999999999992981,-6.90775527898916,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"chernoff",4.58041509652996,9.99999999988415e-07,-13.8155105579759,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"hoeffding",4.15861272446927,0.0499999999999689,-2.99573227355461,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"hoeffding",4.97003770915914,0.000999999999999035,-6.9077552789831,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"hoeffding",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"cantelli",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"cantelli",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"cantelli",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"bernstein",4.73562053530592,0.0499999999999814,-2.99573227355436,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"bernstein",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"bernstein",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"binomial_p2",4.26671844708014,0.0499999999999768,-2.99573227355446,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"binomial_p2",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"binomial_p2",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian",3.96902537888266,0.0499999999999682,-2.99573227355463,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian",4.77937838926227,0.000999999999999039,-6.9077552789831,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian_k",3.84658522794332,0.0499999999999522,-2.99573227355495,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",4.27054710378832,0.000999999999997883,-6.90775527898425,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",4.61895297108606,9.99999999995639e-07,-13.8155105579686,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"pinelis",4.00053389373169,0.049999999999968,-2.99573227355463,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"pinelis",4.79612348017032,0.000999999999999021,-6.90775527898312,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"pinelis",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"pinelis_k",3.86670541131039,0.0499999999999511,-2.99573227355497,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"pinelis_k",4.27763256718466,0.000999999999997824,-6.90775527898431,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",4.61870356693515,9.99999999995577e-07,-13.8155105579687,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",4.61543546661096,0.0499999999999899,-2.99573227355419,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"symmetric_chebyshev",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"symmetric_chebyshev",5.18737751764006,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"harmonic100",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"harmonic100",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"harmonic100",1e-06,"Concentration",NA
+1,0.95,"grid",3.61825561523452,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.00149577337622596,"harmonic100",0.05,"Grid",NA
+2,0.999,"grid",4.12515258789077,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.00149577337622596,"harmonic100",0.001,"Grid",NA
+3,0.999999,"grid",4.50439453125015,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.00149577337622596,"harmonic100",1e-06,"Grid",NA
+1,0.95,"grouped_one",4.64625459374285,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,3.81103315901938,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_one",4.75927551909053,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,3.81103315901938,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_one",4.87450878370635,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,3.81103315901938,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_one",4.50863226346695,0.0499999999992041,-2.99573227356991,TRUE,FALSE,FALSE,"","one",101,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_one",4.71239288784764,0.000856927209710029,-7.06215757913477,TRUE,FALSE,FALSE,"","one",101,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_one",4.86081015358411,4.63018234138557e-07,-14.585499401047,TRUE,FALSE,FALSE,"","one",101,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_one",3.85272535727672,0.04999999999512,-2.99573227365159,TRUE,FALSE,FALSE,"","one",101,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_one",4.24038368276264,0.000999999999783333,-6.9077552791988,TRUE,FALSE,FALSE,"","one",101,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_one",4.5631433683899,9.99999999534082e-07,-13.8155105584302,TRUE,FALSE,FALSE,"","one",101,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_two",4.43610284368853,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",51,3.24883942231479,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_two",4.6005553596331,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",51,3.24883942231479,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_two",4.7660623224101,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",51,3.24883942231479,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_two",4.28027371215726,0.0489954761630307,-3.01602730833702,TRUE,FALSE,FALSE,"","two",2601,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_two",4.5465051904078,0.000929318819203628,-6.98105869266056,TRUE,FALSE,FALSE,"","two",2601,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_two",4.74266970956574,9.12952272726906e-07,-13.9065822329348,TRUE,FALSE,FALSE,"","two",2601,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_two",3.83223097776817,0.0499999999952409,-2.99573227364917,TRUE,FALSE,FALSE,"","two",2601,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_two",4.22645555688456,0.00099999999978548,-6.90775527919666,TRUE,FALSE,FALSE,"","two",2601,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_two",4.55284812412097,9.99999999561962e-07,-13.8155105584023,TRUE,FALSE,FALSE,"","two",2601,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_three",4.30539930697306,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","three",1156,2.88900070028656,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_three",4.50546110498591,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","three",1156,2.88900070028656,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_three",4.69992438473523,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","three",1156,2.88900070028656,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_three",4.14587510022559,0.0499924051219363,-2.99588418265287,TRUE,FALSE,FALSE,"","three",40460,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_three",4.44801488484903,0.000998820901492109,-6.90893507317358,TRUE,FALSE,FALSE,"","three",40460,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_three",4.67706649551278,9.73549362446021e-07,-13.8423173072604,TRUE,FALSE,FALSE,"","three",40460,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_three",3.81575347682536,0.0499999999953401,-2.99573227364719,TRUE,FALSE,FALSE,"","three",40460,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_three",4.21517836248015,0.000999999999787406,-6.90775527919473,TRUE,FALSE,FALSE,"","three",40460,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_three",4.54483153037259,9.99999999564637e-07,-13.8155105583996,TRUE,FALSE,FALSE,"","three",40460,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain1",4.6290132144325,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,2.83064100215663,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_retain1",4.75927551909053,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,2.83064100215663,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain1",4.87450878370635,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,2.83064100215663,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain1",4.16602005272796,0.0499999999986325,-2.99573227358134,TRUE,FALSE,FALSE,"","retain1",200,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain1",4.67987041296663,0.000937984644563209,-6.97177697949374,TRUE,FALSE,FALSE,"","retain1",200,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain1",4.84692126469522,5.55563427650269e-07,-14.4032830531963,TRUE,FALSE,FALSE,"","retain1",200,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain1",3.84668765247124,0.0499999999954002,-2.99573227364599,TRUE,FALSE,FALSE,"","retain1",200,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain1",4.2402985155255,0.000999999999779696,-6.90775527920244,TRUE,FALSE,FALSE,"","retain1",200,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain1",4.56301511240546,9.9999999956583e-07,-13.8155105583984,TRUE,FALSE,FALSE,"","retain1",200,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain2",4.59361221192624,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,2.35024884529389,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_retain2",4.74389090370592,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,2.35024884529389,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain2",4.87450878370635,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,2.35024884529389,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain2",3.97920533834432,0.0495948714539091,-3.00386784870388,TRUE,FALSE,FALSE,"","retain2",396,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain2",4.66320374629996,0.00070281941003811,-7.26041058387945,TRUE,FALSE,FALSE,"","retain2",396,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain2",4.83283675765296,7.55785190599372e-07,-14.095508640561,TRUE,FALSE,FALSE,"","retain2",396,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain2",3.82882506786103,0.0499999999958058,-2.99573227363788,TRUE,FALSE,FALSE,"","retain2",396,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain2",4.23959512248078,0.000999999999783887,-6.90775527919825,TRUE,FALSE,FALSE,"","retain2",396,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain2",4.5633210402388,9.99999999571556e-07,-13.8155105583927,TRUE,FALSE,FALSE,"","retain2",396,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain4",4.45879717506427,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,1.80537705042209,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_retain4",4.7123928878329,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,1.80537705042209,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain4",4.86081015356936,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,1.80537705042209,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain4",3.86301375403944,0.0499999999971152,-2.99573227361169,TRUE,FALSE,FALSE,"","retain4",1552,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain4",4.57543039375916,0.000905006369255773,-7.00756857643743,TRUE,FALSE,FALSE,"","retain4",1552,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain4",4.81855104336725,6.39641885893393e-07,-14.2623573704926,TRUE,FALSE,FALSE,"","retain4",1552,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain4",3.7801581348172,0.0499999999962798,-2.9957322736284,TRUE,FALSE,FALSE,"","retain4",1552,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain4",4.23374608905855,0.000999999999798158,-6.90775527918398,TRUE,FALSE,FALSE,"","retain4",1552,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain4",4.56273993664393,9.99999999557482e-07,-13.8155105584068,TRUE,FALSE,FALSE,"","retain4",1552,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_auto",3.85156028058984,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",64896,0.513493219755045,"harmonic100",0.05,"Count envelope",NA
+2,0.999,"grouped_auto",4.3268751798044,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",64896,0.513493219755045,"harmonic100",0.001,"Count envelope",NA
+3,0.999999,"grouped_auto",4.6483737469753,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",64896,0.513493219755045,"harmonic100",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",3504384,NA,"harmonic100",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",3504384,NA,"harmonic100",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",3504384,NA,"harmonic100",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",3504384,NA,"harmonic100",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",3504384,NA,"harmonic100",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",3504384,NA,"harmonic100",1e-06,"Conditional MGF",NA
+1,0.95,"support",1000.00000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"support",1000.00000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"support",1000.00000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"endpoint",999.010000000085,9.33263618512513e-302,-693.147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"endpoint",999.010000000085,9.33263618512513e-302,-693.147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"endpoint",999.010000000085,9.33263618512513e-302,-693.147180559935,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"chernoff",538.68358285087,0.0499999999982354,-2.99573227358928,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"chernoff",558.702908536151,0.000999999999960985,-6.90775527902115,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"chernoff",582.922314399648,9.99999999956291e-07,-13.815510558008,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"hoeffding",538.702921926033,0.0499999999997775,-2.99573227355844,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"hoeffding",558.770681459763,0.000999999999993195,-6.90775527898894,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"hoeffding",583.11429479027,9.99999999990339e-07,-13.8155105579739,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"cantelli",568.921394721299,0.049999999999958,-2.99573227355483,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"cantelli",999.758283239795,0.000999999999999774,-6.90775527898236,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"cantelli",1000.00000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"bernstein",539.210488666777,0.0499999999997826,-2.99573227355834,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"bernstein",559.944989131729,0.00099999999999346,-6.90775527898868,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"bernstein",585.472435686342,9.99999999990836e-07,-13.8155105579734,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"binomial_p2",534.248225913431,0.0499999999997767,-2.99573227355846,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"binomial_p2",554.41695400129,0.000999999999993294,-6.90775527898884,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"binomial_p2",579.024153459411,9.99999999990493e-07,-13.8155105579738,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian",534.014141898728,0.0499999999997719,-2.99573227355855,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian",554.055389896468,0.000999999999993278,-6.90775527898886,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian",578.774174680693,9.99999999990488e-07,-13.8155105579738,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"pinelis",534.79339483176,0.0499999999997695,-2.9957322735586,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"pinelis",554.469521164365,0.000999999999993153,-6.90775527898898,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"pinelis",578.752678347546,9.99999999990373e-07,-13.8155105579739,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"The split coincides with, or does not improve, its unsplit comparison.","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",550.000834994784,0.0499999999999404,-2.99573227355518,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"symmetric_chebyshev",853.559294897503,0.000999999999999727,-6.90775527898241,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"symmetric_chebyshev",1000.00000000009,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/4.","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"near1000",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"near1000",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires an upper-tail probability at least 1/2.","",NA,NA,"near1000",1e-06,"Concentration",NA
+1,0.95,"grid",542.437500000028,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","",NA,31.2500000000431,"near1000",0.05,"Grid",NA
+2,0.999,"grid",566.000000000028,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","",NA,31.2500000000431,"near1000",0.001,"Grid",NA
+3,0.999999,"grid",593.062500000028,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","",NA,31.2500000000431,"near1000",1e-06,"Grid",NA
+1,0.95,"grouped_one",528.495735735764,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","one",1,5.00500500503347,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_one",551.478468468497,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","one",1,5.00500500503347,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_one",577.446196196225,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","one",1,5.00500500503347,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_one",526.09440660533,0.0499999990179747,-2.9957322931945,TRUE,FALSE,FALSE,"","one",1001,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_one",549.066442165198,0.00099999995990919,-6.90775531907295,TRUE,FALSE,FALSE,"","one",1001,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_one",575.102005832211,9.99999956334983e-07,-13.8155106016293,TRUE,FALSE,FALSE,"","one",1001,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_one",526.094406605322,0.0499999990179748,-2.9957322931945,TRUE,FALSE,FALSE,"","one",1001,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_one",549.066442165178,0.000999999959909199,-6.90775531907294,TRUE,FALSE,FALSE,"","one",1001,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_one",575.102005832206,9.99999956334855e-07,-13.8155106016294,TRUE,FALSE,FALSE,"","one",1001,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_two",527.247867867896,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","two",501,2.50250250253094,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_two",550.203953953982,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","two",501,2.50250250253094,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_two",576.238068068096,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","two",501,2.50250250253094,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_two",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","two",251001,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_two",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","two",251001,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_two",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","two",251001,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_two",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","two",251001,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_two",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","two",251001,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_two",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","two",251001,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_group_states.","three",111556,NA,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_group_states.","three",111556,NA,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_group_states.","three",111556,NA,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","three",37371260,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","three",37371260,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","three",37371260,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","three",37371260,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","three",37371260,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_three",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","three",37371260,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain1",528.495735735764,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain1",2,4.99499499502343,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_retain1",551.467477477506,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain1",2,4.99499499502343,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain1",577.446196196225,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain1",2,4.99499499502343,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain1",526.094406264357,0.0499999990177731,-2.99573229319853,TRUE,FALSE,FALSE,"","retain1",2000,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain1",549.066416364388,0.000999999960007972,-6.90775531897417,TRUE,FALSE,FALSE,"","retain1",2000,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain1",575.102001573626,9.9999995630621e-07,-13.8155106016581,TRUE,FALSE,FALSE,"","retain1",2000,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain1",526.094406264349,0.0499999990177746,-2.9957322931985,TRUE,FALSE,FALSE,"","retain1",2000,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain1",549.066416364369,0.000999999960007846,-6.90775531897429,TRUE,FALSE,FALSE,"","retain1",2000,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain1",575.102001573622,9.99999956306085e-07,-13.8155106016582,TRUE,FALSE,FALSE,"","retain1",2000,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain2",528.485225225254,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain2",4,4.98500500503343,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_retain2",551.467477477506,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain2",4,4.98500500503343,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain2",577.434704704733,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain2",4,4.98500500503343,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain2",526.094405221196,0.0499999990176081,-2.99573229320183,TRUE,FALSE,FALSE,"","retain2",3996,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain2",549.066388550288,0.000999999960108666,-6.90775531887347,TRUE,FALSE,FALSE,"","retain2",3996,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain2",575.101996889744,9.99999956278445e-07,-13.8155106016858,TRUE,FALSE,FALSE,"","retain2",3996,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain2",526.094405221189,0.0499999990176064,-2.99573229320186,TRUE,FALSE,FALSE,"","retain2",3996,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain2",549.06638855027,0.000999999960108681,-6.90775531887346,TRUE,FALSE,FALSE,"","retain2",3996,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain2",575.10199688974,9.99999956278484e-07,-13.8155106016858,TRUE,FALSE,FALSE,"","retain2",3996,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_retain4",528.474714714743,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","retain4",16,4.96504504507345,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_retain4",551.456506506535,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","retain4",16,4.96504504507345,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_retain4",577.423253253282,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","retain4",16,4.96504504507345,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_retain4",526.09440096118,0.0499999990173675,-2.99573229320664,TRUE,FALSE,FALSE,"","retain4",15952,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_retain4",549.066326850832,0.000999999960316534,-6.9077553186656,TRUE,FALSE,FALSE,"","retain4",15952,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_retain4",575.10198618961,9.99999956226229e-07,-13.815510601738,TRUE,FALSE,FALSE,"","retain4",15952,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_retain4",526.094400961173,0.0499999990173657,-2.99573229320668,TRUE,TRUE,FALSE,"","retain4",15952,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_retain4",549.066326850815,0.000999999960316526,-6.90775531866561,TRUE,TRUE,FALSE,"","retain4",15952,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_retain4",575.101986189606,9.99999956226195e-07,-13.8155106017381,TRUE,TRUE,FALSE,"","retain4",15952,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"grouped_auto",526.938078078107,0.05,-2.99573227355399,TRUE,FALSE,FALSE,"","auto",63252,1.87437437440278,"near1000",0.05,"Count envelope",NA
+2,0.999,"grouped_auto",549.893883883912,0.001,-6.90775527898214,TRUE,FALSE,FALSE,"","auto",63252,1.87437437440278,"near1000",0.001,"Count envelope",NA
+3,0.999999,"grouped_auto",575.928478478507,1e-06,-13.8155105579643,TRUE,FALSE,FALSE,"","auto",63252,1.87437437440278,"near1000",1e-06,"Count envelope",NA
+1,0.95,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",31626000,NA,"near1000",0.05,"Conditional moments",NA
+2,0.999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",31626000,NA,"near1000",0.001,"Conditional moments",NA
+3,0.999999,"conditional_moments_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",31626000,NA,"near1000",1e-06,"Conditional moments",NA
+1,0.95,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",31626000,NA,"near1000",0.05,"Conditional MGF",NA
+2,0.999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",31626000,NA,"near1000",0.001,"Conditional MGF",NA
+3,0.999999,"conditional_mgf_auto",NA,NA,NA,FALSE,FALSE,FALSE,"Exceeds max_count_states.","auto",31626000,NA,"near1000",1e-06,"Conditional MGF",NA
+1,0.95,"support",481.296743395873,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"support",481.296743395873,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"support",481.296743395873,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"endpoint",480.296743395873,4.73805758716924e-33,-74.4296808088205,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"endpoint",480.296743395873,4.73805758716924e-33,-74.4296808088205,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"endpoint",480.296743395873,4.73805758716924e-33,-74.4296808088205,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"chernoff",313.152296007909,0.0499999999997714,-2.99573227355856,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"chernoff",344.068294928329,0.000999999999993915,-6.90775527898822,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"chernoff",379.201150491246,9.99999999991609e-07,-13.8155105579727,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"hoeffding",319.59670637878,0.0499999999999386,-2.99573227355522,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"hoeffding",355.718070316547,0.000999999999998106,-6.90775527898403,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"hoeffding",399.535842559312,9.99999999997268e-07,-13.815510557967,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"cantelli",365.591427621385,0.049999999999986,-2.99573227355427,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"cantelli",481.296743395873,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"cantelli",481.296743395873,0,-Inf,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"bernstein",318.515108378421,0.0499999999999406,-2.99573227355518,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"bernstein",357.051784174791,0.000999999999998262,-6.90775527898387,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"bernstein",406.675388651269,9.99999999997638e-07,-13.8155105579666,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"binomial_p2",307.944454329548,0.0499999999999357,-2.99573227355528,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"binomial_p2",342.314551634956,0.000999999999998029,-6.90775527898411,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"binomial_p2",383.869498968416,9.99999999996938e-07,-13.8155105579673,TRUE,FALSE,FALSE,"","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"bentkus_gaussian_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"pinelis",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"pinelis",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"pinelis",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"pinelis_k",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"symmetric_chebyshev",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"symmetric_chebyshev",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"symmetric_chebyshev",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"tomaszewski",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"symmetry",NA,NA,NA,FALSE,FALSE,FALSE,"Requires fair active Bernoulli variables.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"grid",293.253906250014,0.05,-2.99573227355399,TRUE,TRUE,FALSE,"","",NA,0.078256604188321,"unequal_sqrt80",0.05,"Grid",NA
+2,0.999,"grid",329.503906250014,0.001,-6.90775527898214,TRUE,TRUE,FALSE,"","",NA,0.078256604188321,"unequal_sqrt80",0.001,"Grid",NA
+3,0.999999,"grid",368.662109375014,1e-06,-13.8155105579643,TRUE,TRUE,FALSE,"","",NA,0.078256604188321,"unequal_sqrt80",1e-06,"Grid",NA
+1,0.95,"grouped",NA,NA,NA,FALSE,FALSE,FALSE,"Count envelopes require one common active success probability.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"grouped",NA,NA,NA,FALSE,FALSE,FALSE,"Count envelopes require one common active success probability.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"grouped",NA,NA,NA,FALSE,FALSE,FALSE,"Count envelopes require one common active success probability.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"conditional_moments",NA,NA,NA,FALSE,FALSE,FALSE,"Conditional count moments require one common active success probability.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"conditional_moments",NA,NA,NA,FALSE,FALSE,FALSE,"Conditional count moments require one common active success probability.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"conditional_moments",NA,NA,NA,FALSE,FALSE,FALSE,"Conditional count moments require one common active success probability.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA
+1,0.95,"conditional_mgf",NA,NA,NA,FALSE,FALSE,FALSE,"Conditional count MGFs require one common active success probability.","",NA,NA,"unequal_sqrt80",0.05,"Concentration",NA
+2,0.999,"conditional_mgf",NA,NA,NA,FALSE,FALSE,FALSE,"Conditional count MGFs require one common active success probability.","",NA,NA,"unequal_sqrt80",0.001,"Concentration",NA
+3,0.999999,"conditional_mgf",NA,NA,NA,FALSE,FALSE,FALSE,"Conditional count MGFs require one common active success probability.","",NA,NA,"unequal_sqrt80",1e-06,"Concentration",NA

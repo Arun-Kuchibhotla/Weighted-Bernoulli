@@ -1,0 +1,21 @@
+[1] ".GlobalEnv"   "Autoloads"    "package:base"
+[1] 4 6 7
+Installed documentation and executable script paths:
+[1] "/workspace/scratch/c9b3d3e88029/quantile_note/tmp/package_validation/r-library/weightedBernoulli/doc/weighted_bernoulli_quantiles.pdf"     
+[2] "/workspace/scratch/c9b3d3e88029/quantile_note/tmp/package_validation/r-library/weightedBernoulli/research/weighted_bernoulli_quantiles.tex"
+[3] "/workspace/scratch/c9b3d3e88029/quantile_note/tmp/package_validation/r-library/weightedBernoulli/examples/usage_examples.R"                
+[4] "/workspace/scratch/c9b3d3e88029/quantile_note/tmp/package_validation/r-library/weightedBernoulli/reproduce/reproduce.R"                    
+To cite weightedBernoulli in publications, use:
+
+  Kuchibhotla A (2026). _weightedBernoulli: Quantiles of Independent
+  Weighted Bernoulli Sums_. R package version 0.1.0.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {weightedBernoulli: Quantiles of Independent Weighted Bernoulli Sums},
+    author = {Arun Kumar Kuchibhotla},
+    year = {2026},
+    note = {R package version 0.1.0},
+  }
+Namespace-only package smoke checks passed.

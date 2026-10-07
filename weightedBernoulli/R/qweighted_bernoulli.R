@@ -1,10 +1,11 @@
 # Quantiles of independent weighted Bernoulli sums: ONE public function.
 # X = sum(weights[i] * Bernoulli(prob[i])); nonnegative finite weights.
-# Only base R and stats are needed. All implementation helpers are local.
+# Only R standard packages are needed. All implementation helpers are local.
 #
 # qweighted_bernoulli(p, weights, prob=0.5, max_length=25,
 #                    lower.tail=TRUE, log.p=FALSE, details=FALSE,
-#                    control=list())
+#                    control=list(), randomized=FALSE,
+#                    two.sided=FALSE, draw=TRUE)
 #
 # The ordinary p-quantile is inf{x: Pr(X <= x) >= p}. At p=0 and p=1
 # return the support endpoints. lower.tail=FALSE supplies Pr(X > q);
@@ -64,9 +65,20 @@
 # doi:10.1090/S0002-9939-1990-1013975-0; Bardenet-Maillard,
 # doi:10.3150/14-BEJ605. The accompanying note derives the count refinements.
 
+#
+# randomized=TRUE returns adjacent cutoffs c_minus/c_plus, their probabilities,
+# tau (probability of c_plus), and kappa/quantile (a fresh draw unless draw=FALSE).
+# two.sided=TRUE gives the original fair-Bernoulli inclusive two-sided cutoff
+# at alpha=1-p (or alpha=p with lower.tail=FALSE), with sentinel c_minus=-1.
+# Exact routes calibrate at the nominal level, including the center atom.
+# Unresolved long sums use an explicitly conservative degenerate cutoff;
+# their probability fields are bounds. No RNG is used for ordinary calls,
+# draw=FALSE, or degenerate mixtures. See the randomized-quantile addendum.
+
 qweighted_bernoulli <- function(
     p, weights, prob=0.5, max_length=25,
-    lower.tail=TRUE, log.p=FALSE, details=FALSE, control=list()) {
+    lower.tail=TRUE, log.p=FALSE, details=FALSE, control=list(),
+    randomized=FALSE, two.sided=FALSE, draw=TRUE) {
 
   log_complement <- function(x) {
     answer <- numeric(length(x))
@@ -99,9 +111,79 @@ qweighted_bernoulli <- function(
     log(survival) <= log_upper[j]
   }
 
-  exact_result <- function(q, method) {
-    data.frame(quantile = q, exact = TRUE, method = method,
-               stringsAsFactors = FALSE)
+  exact_result <- function(q, method, metadata = NULL) {
+    answer <- data.frame(quantile = q, exact = TRUE, method = method,
+                         stringsAsFactors = FALSE)
+    if (!is.null(metadata)) answer <- cbind(answer, metadata)
+    answer
+  }
+
+  # Optional jump information for exact randomized quantiles. This work is
+  # requested internally via control$randomized; it is not a public control.
+  exact_metadata_frame <- function(n) {
+    answer <- rep(list(rep(NA_real_, n)), 13L)
+    names(answer) <- c("predecessor", "cdf", "cdf_before", "survival", "survival_before",
+        "mass", "log_cdf", "log_cdf_before", "log_survival",
+        "log_survival_before", "log_mass", "support_index", "predecessor_index")
+    answer <- as.data.frame(answer)
+    answer$at_center <- rep(NA, n)
+    answer$metadata_valid <- rep(FALSE, n)
+    answer
+  }
+
+  exact_metadata_row <- function(predecessor, cdf, cdf_before, survival,
+      survival_before, mass, log_cdf = log(cdf),
+      log_cdf_before = log(cdf_before), log_survival = log(survival),
+      log_survival_before = log(survival_before), log_mass = log(mass),
+      support_index = NA_real_, predecessor_index = NA_real_, at_center = NA) {
+    data.frame(predecessor = predecessor,
+      cdf = min(1, cdf), cdf_before = min(1, cdf_before),
+      survival = min(1, survival), survival_before = min(1, survival_before),
+      mass = min(1, mass), log_cdf = min(0, log_cdf),
+      log_cdf_before = min(0, log_cdf_before),
+      log_survival = min(0, log_survival),
+      log_survival_before = min(0, log_survival_before),
+      log_mass = min(0, log_mass), support_index = support_index,
+      predecessor_index = predecessor_index, at_center = at_center,
+      metadata_valid = is.finite(log_mass) && log_mass <= 1e-12 &&
+        !anyNA(c(cdf, cdf_before, survival, survival_before,
+          log_cdf, log_cdf_before, log_survival, log_survival_before)) &&
+        cdf >= cdf_before && survival_before >= survival)
+  }
+
+  exact_log_sum <- function(x) {
+    if (!length(x)) return(-Inf)
+    a <- max(x)
+    if (!is.finite(a)) return(a)
+    a + log(sum(exp(x - a)))
+  }
+
+  exact_log_add <- function(x, y) {
+    answer <- pmax(x, y)
+    finite <- is.finite(answer)
+    answer[finite] <- answer[finite] +
+      log1p(exp(-abs(x[finite] - y[finite])))
+    answer
+  }
+
+  # Compute an atom directly from the contributing pairs, avoiding a
+  # subtraction of almost equal CDF or survival values. The index ranges
+  # also include all repeated or numerically coincident subset-sum values.
+  exact_pair_atom <- function(left_mass, left_log_mass, right_mass,
+      right_log_mass, before, at) {
+    ii <- which(at > before)
+    if (!length(ii)) return(list(mass = 0, log_mass = -Inf))
+    component <- component_log <- numeric(length(ii))
+    single <- at[ii] == before[ii] + 1L
+    component[single] <- right_mass[at[ii[single]]]
+    component_log[single] <- right_log_mass[at[ii[single]]]
+    for (k in which(!single)) {
+      jj <- seq.int(before[ii[k]] + 1L, at[ii[k]])
+      component[k] <- sum(right_mass[jj])
+      component_log[k] <- exact_log_sum(right_log_mass[jj])
+    }
+    list(mass = min(1, sum(left_mass[ii] * component)),
+      log_mass = min(0, exact_log_sum(left_log_mass[ii] + component_log)))
   }
 
   # No approximate rounding of arbitrary scores is used to recognize a lattice.
@@ -154,18 +236,42 @@ qweighted_bernoulli <- function(
     if (!is.finite(total) || total + 1 > control$max_states ||
         sum(1 + cumsum(w_integer)) > control$max_dp_work) return(NULL)
     if (any(w_integer < 1 | w_integer != floor(w_integer))) return(NULL)
+    want_metadata <- isTRUE(control$randomized)
+    metadata <- if (want_metadata) exact_metadata_frame(length(log_lower)) else NULL
     mass <- 1
+    if (want_metadata) {
+      reachable <- TRUE
+      log_mass <- 0
+    }
     for (j in seq_along(w_integer)) {
       a <- w_integer[j]
       old <- seq_along(mass)
       next_mass <- numeric(length(mass) + a)
       next_mass[old] <- mass * (1 - prob[j])
       next_mass[old + a] <- next_mass[old + a] + mass * prob[j]
+      if (want_metadata) {
+        next_reachable <- rep(FALSE, length(next_mass))
+        next_reachable[old] <- reachable
+        next_reachable[old + a] <- next_reachable[old + a] | reachable
+        next_log_mass <- rep(-Inf, length(next_mass))
+        next_log_mass[old] <- log_mass + log1p(-prob[j])
+        next_log_mass[old + a] <- exact_log_add(next_log_mass[old + a],
+          log_mass + log(prob[j]))
+        reachable <- next_reachable
+        log_mass <- next_log_mass
+      }
       mass <- next_mass
     }
     cdf <- cumsum(mass)
     # survival[k + 1] = P(sum > k), evaluated without 1 - CDF.
     survival <- c(rev(cumsum(rev(mass[-1L]))), 0)
+    if (want_metadata) {
+      survival_inclusive <- rev(cumsum(rev(mass)))
+      preceding <- cummax(ifelse(reachable, seq_along(mass), 0L))
+      log_probability <- function(value, indices) {
+        if (value > 0) log(min(1, value)) else exact_log_sum(log_mass[indices])
+      }
+    }
     answer <- rep(NA_real_, length(log_lower))
     for (j in seq_along(answer)) {
       # Ordinary arithmetic is inappropriate for targets near probability
@@ -180,9 +286,30 @@ qweighted_bernoulli <- function(
         mid <- floor(lo + (hi - lo) / 2)
         if (ok(mid)) hi <- mid else lo <- mid + 1L
       }
-      if (ok(lo) && (lo == 1L || !ok(lo - 1L))) answer[j] <- lo - 1
+      if (ok(lo) && (lo == 1L || !ok(lo - 1L))) {
+        answer[j] <- lo - 1
+        if (want_metadata) {
+          before <- if (lo == 1L) 0L else preceding[lo - 1L]
+          less <- if (lo == 1L) integer() else seq_len(lo - 1L)
+          greater <- if (lo == length(mass)) integer() else
+            seq.int(lo + 1L, length(mass))
+          cb <- if (lo == 1L) 0 else cdf[lo - 1L]
+          metadata[j, ] <- exact_metadata_row(
+            predecessor = if (before) before - 1 else -Inf,
+            cdf = cdf[lo], cdf_before = cb,
+            survival = survival[lo], survival_before = survival_inclusive[lo],
+            mass = mass[lo],
+            log_cdf = log_probability(cdf[lo], seq_len(lo)),
+            log_cdf_before = log_probability(cb, less),
+            log_survival = log_probability(survival[lo], greater),
+            log_survival_before = log_probability(survival_inclusive[lo],
+              seq.int(lo, length(mass))), log_mass = log_mass[lo],
+            support_index = lo - 1, predecessor_index = if (before) before - 1 else -Inf,
+            at_center = 2 * (lo - 1) == total)
+        }
+      }
     }
-    exact_result(answer, "lattice_dp")
+    exact_result(answer, "lattice_dp", metadata)
   }
 
   # Correct the quantile routine's deliberate fuzz by checking the CDF jump.
@@ -191,6 +318,13 @@ qweighted_bernoulli <- function(
                                        log_lower, log_upper, control,
                                        lower_prob = NULL, upper_prob = NULL) {
     total <- if (kind == "binomial") n else n * (n + 1) / 2
+    want_metadata <- isTRUE(control$randomized)
+    metadata <- if (want_metadata) exact_metadata_frame(length(log_lower)) else NULL
+    density <- if (kind == "binomial") {
+      function(k, log.p) stats::dbinom(k, n, success, log = log.p)
+    } else {
+      function(k, log.p) stats::dsignrank(k, n, log = log.p)
+    }
     distribution <- if (kind == "binomial") {
       function(k, lower.tail, log.p) stats::pbinom(k, n, success,
         lower.tail = lower.tail, log.p = log.p)
@@ -210,6 +344,10 @@ qweighted_bernoulli <- function(
       for (j in seq_len(n)) row <- c(row, 0) + c(0, row)
       cdf <- cumsum(row) * 2^-n
       survival <- c(rev(cumsum(rev(row[-1L]))), 0) * 2^-n
+      density <- function(k, log.p) {
+        value <- row[k + 1L] * 2^-n
+        if (log.p) log(value) else value
+      }
       distribution <- function(k, lower.tail, log.p) {
         at <- pmin(n, pmax(0, floor(k))) + 1L
         value <- if (lower.tail) cdf[at] else survival[at]
@@ -254,9 +392,23 @@ qweighted_bernoulli <- function(
       }
       if (lo == hi && ok(lo) && (lo == 0 || !ok(lo - 1))) {
         answer[j] <- step * lo
+        if (want_metadata) metadata[j, ] <- exact_metadata_row(
+          predecessor = if (lo == 0) -Inf else step * (lo - 1),
+          cdf = distribution(lo, TRUE, FALSE),
+          cdf_before = distribution(lo - 1, TRUE, FALSE),
+          survival = distribution(lo, FALSE, FALSE),
+          survival_before = distribution(lo - 1, FALSE, FALSE),
+          mass = density(lo, FALSE),
+          log_cdf = distribution(lo, TRUE, TRUE),
+          log_cdf_before = distribution(lo - 1, TRUE, TRUE),
+          log_survival = distribution(lo, FALSE, TRUE),
+          log_survival_before = distribution(lo - 1, FALSE, TRUE),
+          log_mass = density(lo, TRUE), support_index = lo,
+          predecessor_index = if (lo == 0) -Inf else lo - 1,
+          at_center = 2 * lo == total)
       }
     }
-    exact_result(answer, kind)
+    exact_result(answer, kind, metadata)
   }
 
   exact_half_distribution <- function(w, prob) {
@@ -287,7 +439,9 @@ qweighted_bernoulli <- function(
     nb <- length(b)
     prefix <- c(0, cumsum(right$mass))
     suffix <- c(rev(cumsum(rev(right$mass))), 0)
-    use_log <- any(pmin(log_lower, log_upper) < -650)
+    want_metadata <- isTRUE(control$randomized)
+    metadata <- if (want_metadata) exact_metadata_frame(length(log_lower)) else NULL
+    use_log <- want_metadata || any(pmin(log_lower, log_upper) < -650)
     log_add <- function(x, y) {
       z <- max(x, y)
       if (!is.finite(z)) return(z)
@@ -308,6 +462,7 @@ qweighted_bernoulli <- function(
     used <- 0
     maximum <- max(a) + max(b)
     cache <- new.env(parent = emptyenv())
+    metadata_cache <- if (want_metadata) new.env(parent = emptyenv()) else NULL
 
     pairs <- function(x, strict = FALSE) {
       used <<- used + length(a)
@@ -357,6 +512,8 @@ qweighted_bernoulli <- function(
       key <- paste0(if (lower) "L" else "U", sprintf("%.17g", target))
       if (exists(key, envir = cache, inherits = FALSE)) {
         answer[k] <- get(key, envir = cache, inherits = FALSE)
+        if (want_metadata) metadata[k, ] <-
+          get(key, envir = metadata_cache, inherits = FALSE)
         next
       }
       ok <- function(z) {
@@ -399,9 +556,22 @@ qweighted_bernoulli <- function(
       if (ok(plus) && !ok(minus)) {
         answer[k] <- lo
         assign(key, lo, envir = cache)
+        if (want_metadata) {
+          ii <- which(minus$j > 0L)
+          predecessor <- if (length(ii)) max(a[ii] + b[minus$j[ii]]) else -Inf
+          atom <- exact_pair_atom(left$mass, left$log_mass,
+            right$mass, right$log_mass, minus$j, plus$j)
+          metadata[k, ] <- exact_metadata_row(predecessor = predecessor,
+            cdf = plus$cdf, cdf_before = minus$cdf,
+            survival = plus$survival, survival_before = minus$survival,
+            mass = atom$mass, log_cdf = plus$log_cdf,
+            log_cdf_before = minus$log_cdf, log_survival = plus$log_survival,
+            log_survival_before = minus$log_survival, log_mass = atom$log_mass)
+          assign(key, metadata[k, , drop = FALSE], envir = metadata_cache)
+        }
       }
     }
-    exact_result(answer, "meet_in_the_middle")
+    exact_result(answer, "meet_in_the_middle", metadata)
   }
 
   # Exact compression of repeated (weight, probability) pairs into independent
@@ -426,6 +596,8 @@ qweighted_bernoulli <- function(
     if (log_states > log(control$max_group_states) + 1e-12) return(NULL)
     states <- prod(m[-pivot] + 1)
     if (!is.finite(states) || states > control$max_group_states) return(NULL)
+    want_metadata <- isTRUE(control$randomized)
+    metadata <- if (want_metadata) exact_metadata_frame(length(log_lower)) else NULL
 
     log_sum <- function(x) {
       a <- max(x)
@@ -473,6 +645,8 @@ qweighted_bernoulli <- function(
       log_suffix <- stats::pbinom(thresholds, m[pivot], gp[pivot],
                                  lower.tail = FALSE, log.p = TRUE)
     }
+
+    if (want_metadata) pivot_mass <- count_mass(m[pivot], gp[pivot])
 
     pair_query <- function(x, strict = FALSE) {
       j <- findInterval(x - values, pv)
@@ -536,11 +710,30 @@ qweighted_bernoulli <- function(
         }
         if (lo > hi) break
       }
-      if (lo == hi && target_ok(pair_query(lo), i) &&
-          !target_ok(pair_query(lo, strict = TRUE), i)) ans[i] <- lo
+      if (lo == hi) {
+        plus <- pair_query(lo)
+        minus <- pair_query(lo, strict = TRUE)
+        if (target_ok(plus, i) && !target_ok(minus, i)) {
+          ans[i] <- lo
+          if (want_metadata) {
+            ii <- which(minus$j > 0L)
+            predecessor <- if (length(ii))
+              max(values[ii] + pv[minus$j[ii]]) else -Inf
+            atom <- exact_pair_atom(mass, log_mass, pivot_mass$mass,
+              pivot_mass$log_mass, minus$j, plus$j)
+            metadata[i, ] <- exact_metadata_row(predecessor = predecessor,
+              cdf = plus$cdf, cdf_before = minus$cdf,
+              survival = plus$survival, survival_before = minus$survival,
+              mass = atom$mass, log_cdf = plus$log_cdf,
+              log_cdf_before = minus$log_cdf, log_survival = plus$log_survival,
+              log_survival_before = minus$log_survival, log_mass = atom$log_mass)
+          }
+        }
+      }
     }
-    exact_result(ans, "binomial_blocks")
+    exact_result(ans, "binomial_blocks", metadata)
   }
+
 
   # Nested inside the public weighted-Bernoulli quantile function.
   # Inputs: positive normalized w; 0 < prob[i] < 1; vector log_beta <= 0.
@@ -961,7 +1154,7 @@ qweighted_bernoulli <- function(
       a <- sort(weights[indices], decreasing=TRUE)
       h <- length(a) %/% 2L
       if (h == 0L || a[1L] == a[length(a)]) return(0)
-      max(0, sum(a[seq_len(h)]) - sum(tail(a, h)))
+      max(0, sum(a[seq_len(h)]) - sum(utils::tail(a, h)))
     }
     log_states <- function(blocks) {
       m <- lengths(blocks)
@@ -1101,7 +1294,7 @@ qweighted_bernoulli <- function(
     }
 
     quantile_intervals <- function(remainder, values) {
-      support_max <- max(remainder) + tail(values, 1)
+      support_max <- max(remainder) + utils::tail(values, 1)
       result <- matrix(NA_real_, nrow=length(p), ncol=2L,
         dimnames=list(NULL, c("lower", "upper")))
       resolved <- logical(length(p))
@@ -1380,7 +1573,7 @@ qweighted_bernoulli <- function(
           wanted <- if (is.null(numeric_upper)) exp(target[i]) else numeric_upper[i]
           ok <- survival <= wanted*(1+guard)
         } else ok <- survivor <= target[i]+log1p(guard)
-        if (any(ok)) s[which(ok)[1L]] else tail(s,1L)
+        if (any(ok)) s[which(ok)[1L]] else utils::tail(s,1L)
       },numeric(1))
     }
     prefix <- envelope_quantile(high,log_alpha)
@@ -1463,10 +1656,199 @@ qweighted_bernoulli <- function(
       method=if (use_mgf) "conditional_moments_and_mgf" else "conditional_moments")
   }
 
-  for (flag in list(lower.tail=lower.tail, log.p=log.p, details=details)) {
-    if (!is.logical(flag) || length(flag) != 1L || is.na(flag))
-      stop("lower.tail, log.p, and details must each be TRUE or FALSE.")
+  # Randomization uses actual adjacent atoms only after an exact-law route.
+  # Conservative routes give a degenerate, clearly identified mixture.
+  log_difference <- function(a, b) {
+    if (b == -Inf) return(a)
+    if (a == b) return(-Inf)
+    if (a < b) {
+      if (b-a <= 64*.Machine$double.eps*max(1, abs(a), abs(b)))
+        return(-Inf)
+      stop("The randomized probability was not bracketed in double precision.")
+    }
+    a + log(-expm1(b-a))
   }
+
+  interpolation_logs <- function(log_target, log_low, log_high,
+                                 log_jump, target=NULL, low=NULL, high=NULL) {
+    if (!is.null(target) && !is.null(low) && !is.null(high)) {
+      if (target == low && (target > 0 || log_target == -Inf))
+        return(c(-Inf, 0))
+      if (target == high && (target > 0 || log_target == -Inf))
+        return(c(0, -Inf))
+    }
+    # Preserve an ordinary-scale target at CDF jumps. A log/exp round trip
+    # can change its position by a substantial fraction of a very small atom.
+    ordinary <- !is.null(target) && !is.null(low) && !is.null(high) &&
+      target > 0 && target > low && high > target
+    if (ordinary) {
+      a <- log(target-low)-log_jump
+      b <- log(high-target)-log_jump
+    } else {
+      a <- log_difference(log_target, log_low)-log_jump
+      b <- log_difference(log_high, log_target)-log_jump
+    }
+    if (is.na(a) || is.na(b) || (a == -Inf && b == -Inf))
+      stop("The randomized atom could not be resolved in double precision.")
+    # Determine the smaller mixing probability directly, preserving very small
+    # probabilities even when the larger one rounds to one.
+    if (min(a, b) > -log(2)+1e-8)
+      stop("The randomized probability jump was numerically inconsistent.")
+    if (a <= b) {
+      a <- min(0, a)
+      b <- log_complement(a)
+    } else {
+      b <- min(0, b)
+      a <- log_complement(b)
+    }
+    c(a, b)
+  }
+
+  conservative_symmetric_cutoff <- function(q) {
+    N <- sum(weights)
+    if (!is.finite(q) || q >= N || N == 0) return(-1)
+    budget <- N-q-128*.Machine$double.eps*N-8*2^-1074
+    if (budget <= 0) return(-1)
+    greedy <- function(ordering) {
+      selected <- integer(length(w))
+      count <- 0L
+      value <- 0
+      for (j in ordering) {
+        next_value <- value+w[j]
+        if (next_value < budget) {
+          count <- count+1L
+          selected[count] <- j
+          value <- next_value
+        }
+      }
+      selected <- selected[seq_len(count)]
+      value <- sum(w[selected])
+      while (length(selected) && !(value < budget)) {
+        selected <- selected[seq_len(length(selected)-1L)]
+        value <- sum(w[selected])
+      }
+      if (value < budget && value < N/2) value else -1
+    }
+    max(greedy(seq_along(w)), greedy(rev(seq_along(w))))
+  }
+
+  randomized_result <- function() {
+    number <- nrow(answer)
+    c_plus <- answer$quantile
+    c_minus <- rep(NA_real_, number)
+    tau <- log_tau <- log_one_minus_tau <- rep(NA_real_, number)
+    P_plus <- P_minus <- log_P_plus <- log_P_minus <- rep(NA_real_, number)
+    exact <- answer$exact & is.finite(atom_information$log_mass)
+    method <- answer$method
+    for (i in seq_len(number)) {
+      if (!exact[i]) {
+        if (two.sided) {
+          c_plus[i] <- conservative_symmetric_cutoff(answer$quantile[i])
+          log_P_plus[i] <- if (c_plus[i] == -1) -Inf else
+            min(0, answer$log_tail_bound[i]+log(2))
+        } else {
+          log_P_plus[i] <- answer$log_tail_bound[i]
+        }
+        c_minus[i] <- c_plus[i]
+        log_P_minus[i] <- log_P_plus[i]
+        P_plus[i] <- probability_upper(log_P_plus[i])
+        P_minus[i] <- P_plus[i]
+        tau[i] <- 1
+        log_tau[i] <- 0
+        log_one_minus_tau[i] <- -Inf
+        method[i] <- paste0("conservative_", method[i])
+        next
+      }
+      z <- atom_information[i, ]
+      c_minus[i] <- z$predecessor
+      if (!(c_minus[i] < c_plus[i]))
+        stop("The adjacent randomized cutoffs collapse to the same double. ",
+          "Use higher precision or rescale the problem to resolve the support.")
+      if (two.sided) {
+        if (c_minus[i] == -Inf) c_minus[i] <- -1
+        center <- if (!is.na(z$at_center)) z$at_center else
+          c_plus[i] == sum(weights)/2
+        P_minus[i] <- min(1, 2*z$cdf_before)
+        log_P_minus[i] <- min(0, log(2)+z$log_cdf_before)
+        P_plus[i] <- if (center) 1 else min(1, 2*z$cdf)
+        log_P_plus[i] <- if (center) 0 else min(0, log(2)+z$log_cdf)
+        jump <- z$log_mass + if (center) 0 else log(2)
+        mixing <- interpolation_logs(
+          request_log_upper[i], log_P_minus[i], log_P_plus[i], jump,
+          if (is.null(request_upper_prob)) NULL else request_upper_prob[i],
+          P_minus[i], P_plus[i])
+      } else {
+        P_plus[i] <- z$survival
+        P_minus[i] <- z$survival_before
+        log_P_plus[i] <- z$log_survival
+        log_P_minus[i] <- z$log_survival_before
+        if (request_log_lower[i] <= -log(2)) {
+          mixing <- interpolation_logs(
+            request_log_lower[i], z$log_cdf_before, z$log_cdf, z$log_mass,
+            if (is.null(request_lower_prob)) NULL else request_lower_prob[i],
+            z$cdf_before, z$cdf)
+        } else {
+          mixing <- rev(interpolation_logs(
+            request_log_upper[i], z$log_survival, z$log_survival_before,
+            z$log_mass,
+            if (is.null(request_upper_prob)) NULL else request_upper_prob[i],
+            z$survival, z$survival_before))
+        }
+      }
+      log_tau[i] <- mixing[1L]
+      log_one_minus_tau[i] <- mixing[2L]
+      tau[i] <- if (mixing[1L] <= -log(2)) exp(mixing[1L]) else
+        -expm1(mixing[2L])
+    }
+    names(c_plus) <- names(c_minus) <- names(tau) <- names(p)
+    names(log_tau) <- names(log_one_minus_tau) <- names(p)
+    names(P_plus) <- names(P_minus) <- names(log_P_plus) <-
+      names(log_P_minus) <- names(exact) <- names(p)
+    kappa <- NULL
+    if (draw) {
+      kappa <- c_minus
+      certain_upper <- log_one_minus_tau == -Inf
+      kappa[certain_upper] <- c_plus[certain_upper]
+      mixed <- which(is.finite(log_tau) & is.finite(log_one_minus_tau))
+      if (length(mixed)) {
+        choose_upper <- log(stats::runif(length(mixed))) < log_tau[mixed]
+        kappa[mixed[choose_upper]] <- c_plus[mixed[choose_upper]]
+      }
+    }
+    summary <- data.frame(
+      probability=if (is.null(request_lower_prob)) exp(request_log_lower) else
+        request_lower_prob,
+      alpha=if (is.null(request_upper_prob)) exp(request_log_upper) else
+        request_upper_prob,
+      c_minus=unname(c_minus), c_plus=unname(c_plus), tau=unname(tau),
+      P_minus=unname(P_minus), P_plus=unname(P_plus), exact=unname(exact),
+      degenerate=c_minus == c_plus | log_tau == -Inf |
+        log_one_minus_tau == -Inf,
+      probability_type=ifelse(exact, "exact", "upper_bound"), method=method,
+      row.names=NULL, stringsAsFactors=FALSE)
+    result <- list(quantile=kappa, kappa=kappa, c_plus=c_plus,
+      c_minus=c_minus, tau=tau, log_tau=log_tau,
+      log_one_minus_tau=log_one_minus_tau, P_plus=P_plus, P_minus=P_minus,
+      log_P_plus=log_P_plus, log_P_minus=log_P_minus, exact=exact,
+      two.sided=two.sided,
+      alpha=if (is.null(request_upper_prob)) exp(request_log_upper) else
+        request_upper_prob,
+      log_alpha=request_log_upper, summary=summary)
+    if (details) {
+      result$bounds <- bounds
+      result$diagnostics <- diagnostics
+    }
+    result
+  }
+
+  for (flag in list(lower.tail=lower.tail, log.p=log.p, details=details,
+                    randomized=randomized, two.sided=two.sided, draw=draw)) {
+    if (!is.logical(flag) || length(flag) != 1L || is.na(flag))
+      stop("lower.tail, log.p, details, randomized, two.sided, and draw ",
+           "must each be TRUE or FALSE.")
+  }
+  if (two.sided && !randomized)
+    stop("two.sided=TRUE requires randomized=TRUE.")
   if (!is.numeric(p) || !is.null(dim(p)) || anyNA(p) ||
       (if (log.p) any(p > 0) else any(!is.finite(p) | p < 0 | p > 1)))
     stop("p must be a probability vector, or its logarithm when log.p=TRUE.")
@@ -1481,6 +1863,9 @@ qweighted_bernoulli <- function(
       !is.finite(max_length) || max_length < 0 || max_length > 52 ||
       max_length != floor(max_length))
     stop("max_length must be an integer between 0 and 52; the default is 25.")
+
+  if (two.sided && any(rep_len(prob, length(weights))[weights > 0] != 0.5))
+    stop("The original two-sided cutoff requires prob=0.5 on every positive weight.")
 
   defaults <- list(max_states=2^18, max_dp_work=2e7,
     max_mitm_work=2e7, max_iterations=80, chernoff_iterations=60,
@@ -1524,7 +1909,29 @@ qweighted_bernoulli <- function(
     lower_prob <- upper_prob
     upper_prob <- temporary
   }
+  request_log_lower <- log_lower
+  request_log_upper <- log_upper
+  request_lower_prob <- lower_prob
+  request_upper_prob <- upper_prob
+  if (two.sided) {
+    if (any(!is.finite(log_upper) | log_upper >= 0))
+      stop("The original two-sided cutoff requires alpha strictly between zero and one.")
+    log_lower <- request_log_upper-log(2)
+    log_upper <- log_complement(log_lower)
+    lower_prob <- if (is.null(request_upper_prob)) NULL else request_upper_prob/2
+    # Halving the smallest subnormal ordinary alpha may underflow. Retain the
+    # logarithmic target in that case, including for structured exact laws.
+    if (!is.null(lower_prob) && any(lower_prob == 0)) lower_prob <- NULL
+    upper_prob <- if (is.null(lower_prob)) NULL else 1-lower_prob
+  }
   n_request <- length(p)
+  atom_information <- exact_metadata_frame(n_request)
+  put_atom_information <- function(indices, values) {
+    if (!length(indices)) return(invisible(NULL))
+    for (name in names(values))
+      atom_information[indices, name] <<- rep_len(values[[name]], length(indices))
+    invisible(NULL)
+  }
   answer <- data.frame(probability=exp(log_lower),
     quantile=rep(NA_real_, n_request), exact=rep(FALSE, n_request),
     method=rep(NA_character_, n_request),
@@ -1535,6 +1942,7 @@ qweighted_bernoulli <- function(
     max_length=max_length, control=control, exact_attempts=list(),
     partitions=list())
   finish <- function() {
+    if (randomized) return(randomized_result())
     q <- answer$quantile
     names(q) <- names(p)
     if (!details) return(q)
@@ -1556,6 +1964,8 @@ qweighted_bernoulli <- function(
     answer$tail_bound <- 0
     answer$log_tail_bound <- -Inf
     answer$grid_error <- 0
+    if (randomized) put_atom_information(seq_len(n_request),
+      exact_metadata_row(-Inf, 1, 0, 0, 1, 1, at_center=TRUE))
     return(finish())
   }
   order_w <- order(w)
@@ -1572,8 +1982,8 @@ qweighted_bernoulli <- function(
   log_zero <- sum(log1p(-pr))
   log_top <- sum(log(pr))
   fair <- all(pr == 0.5)
-  zero_mass <- if (fair) 2^-n else exp(log_zero)
-  top_mass <- if (fair) 2^-n else exp(log_top)
+  zero_mass <- if (fair) 2^-n else prod(1-pr)
+  top_mass <- if (fair) 2^-n else prod(pr)
   endpoint_ok <- function(cdf, survival, log_cdf, log_survival) {
     vapply(seq_along(p), function(i) {
       if (log_lower[i] <= -log(2)) {
@@ -1586,8 +1996,10 @@ qweighted_bernoulli <- function(
       log_survival <= log_upper[i]
     }, logical(1))
   }
-  zero_survival <- if (fair && n <= 52L) 1-zero_mass else -expm1(log_zero)
-  below_top <- if (fair && n <= 52L) 1-top_mass else -expm1(log_top)
+  zero_survival <- if ((fair && n <= 52L) || zero_mass <= 0.5)
+    1-zero_mass else -expm1(log_zero)
+  below_top <- if ((fair && n <= 52L) || top_mass <= 0.5)
+    1-top_mass else -expm1(log_top)
   at_zero <- endpoint_ok(zero_mass, zero_survival,
     log_zero, log_complement(log_zero))
   at_top <- !endpoint_ok(below_top, top_mass,
@@ -1608,27 +2020,48 @@ qweighted_bernoulli <- function(
   answer$log_tail_bound[at_top] <- -Inf
   answer$tail_bound[at_top] <- 0
   answer$grid_error[at_top] <- 0
+  if (randomized) {
+    put_atom_information(which(at_zero), exact_metadata_row(
+      -Inf, zero_mass, 0, zero_survival, 1, zero_mass,
+      log_cdf=log_zero, log_cdf_before=-Inf,
+      log_survival=log_complement(log_zero), log_survival_before=0,
+      log_mass=log_zero, at_center=FALSE))
+    put_atom_information(which(at_top), exact_metadata_row(
+      offset+(total-min(w)), 1, below_top, 0, top_mass, top_mass,
+      log_cdf=0, log_cdf_before=log_complement(log_top),
+      log_survival=-Inf, log_survival_before=log_top,
+      log_mass=log_top, at_center=FALSE))
+  }
   pending <- which(is.na(answer$quantile))
   short <- n <= max_length
   exact_control <- control
   exact_control$mitm_B <- max_length
+  exact_control$randomized <- randomized
   if (short && n <= 25L) {
     exact_control$max_states <- max(control$max_states, 2^ceiling(n/2))
     exact_control$max_mitm_work <- Inf
     exact_control$max_iterations <- max(2200, control$max_iterations)
   }
   accept_exact <- function(value, route) {
-    available <- !is.null(value) && any(is.finite(value$quantile))
+    valid <- if (is.null(value)) logical() else is.finite(value$quantile)
+    if (randomized && length(valid))
+      valid <- valid & !is.na(value$metadata_valid) & value$metadata_valid
+    available <- any(valid)
     diagnostics$exact_attempts[[route]] <<- list(available=available,
       reason=if (available) "Finite-distribution calculation succeeded." else
         "Structure, work limit, or a numerical CDF jump prevented this route.")
     if (!available) return(invisible(NULL))
-    done <- which(is.finite(value$quantile))
+    done <- which(valid)
     indices <- pending[done]
     answer$quantile[indices] <<- offset+value$quantile[done]
     answer$exact[indices] <<- TRUE
     answer$method[indices] <<- value$method[done]
     answer$grid_error[indices] <<- 0
+    if (randomized) {
+      columns <- intersect(names(atom_information), names(value))
+      atom_information[indices, columns] <<- value[done, columns, drop=FALSE]
+      atom_information$predecessor[indices] <<- offset+value$predecessor[done]
+    }
     pending <<- which(is.na(answer$quantile))
     invisible(NULL)
   }
@@ -1652,7 +2085,10 @@ qweighted_bernoulli <- function(
   if (length(pending) && fair && n <= 52L && !is.null(lattice)) {
     args <- c(list(w_integer=lattice$weights, prob=pr), exact_arguments())
     value <- do.call(dp_quantiles, args)
-    if (!is.null(value)) value$quantile <- lattice$step*value$quantile
+    if (!is.null(value)) {
+      value$quantile <- lattice$step*value$quantile
+      if (randomized) value$predecessor <- lattice$step*value$predecessor
+    }
     accept_exact(value, "lattice_dp")
   }
   if (length(pending) && fair && !is.null(lattice) &&
@@ -1667,7 +2103,10 @@ qweighted_bernoulli <- function(
   if (length(pending) && !is.null(lattice)) {
     args <- c(list(w_integer=lattice$weights, prob=pr), exact_arguments())
     value <- do.call(dp_quantiles, args)
-    if (!is.null(value)) value$quantile <- lattice$step*value$quantile
+    if (!is.null(value)) {
+      value$quantile <- lattice$step*value$quantile
+      if (randomized) value$predecessor <- lattice$step*value$predecessor
+    }
     accept_exact(value, "lattice_dp")
   }
   if (length(pending) && short) {
@@ -1680,6 +2119,22 @@ qweighted_bernoulli <- function(
         "limits for max_length > 25, or use higher precision for unresolved jumps.")
   }
   if (!length(pending)) return(finish())
+
+  if (two.sided) {
+    # Exact original cutoffs used the alpha/2 lower quantile. For unresolved
+    # requests, compute the best upper (1-alpha/2) quantile bound instead;
+    # randomized_result maps it to a strictly smaller reflected support point.
+    log_upper[pending] <- request_log_upper[pending]-log(2)
+    log_lower[pending] <- log_complement(log_upper[pending])
+    if (!is.null(request_upper_prob) && all(request_upper_prob[pending]/2 > 0)) {
+      upper_prob <- request_upper_prob/2
+      lower_prob <- 1-upper_prob
+    } else {
+      upper_prob <- lower_prob <- NULL
+    }
+    answer$log_tail_bound[pending] <- log_upper[pending]
+    answer$tail_bound[pending] <- probability_upper(log_upper[pending])
+  }
 
   # Every remaining calculation supplies an upper bound. Normalization by a
   # binary unit avoids moment overflow. Tiny normalized terms are replaced by
@@ -1778,6 +2233,9 @@ qweighted_bernoulli <- function(
     }
   }
   grouped_cache <- list()
+  grouped_p <- if (two.sided) log_upper[pending] else p[pending]
+  grouped_lower_tail <- if (two.sided) FALSE else lower.tail
+  grouped_log_p <- if (two.sided) TRUE else log.p
   if (common) {
     add_partition("one", list(seq_len(nn)))
     for (k in c(2L, 3L)) {
@@ -1793,7 +2251,8 @@ qweighted_bernoulli <- function(
     }
     if (control$max_group_states > 0) {
       auto <- tryCatch(grouped_quantiles(
-        p[pending], wn, prob=pn[1L], lower.tail=lower.tail, log.p=log.p,
+        grouped_p, wn, prob=pn[1L],
+        lower.tail=grouped_lower_tail, log.p=grouped_log_p,
         details=TRUE, control=list(max_states=control$max_group_states,
                                   max_iterations=control$max_iterations)),
         error=function(e) e)
@@ -1827,8 +2286,8 @@ qweighted_bernoulli <- function(
     } else {
       result <- grouped_cache[[name]]
       if (is.null(result)) result <- tryCatch(grouped_quantiles(
-        p[pending], wn, prob=pn[1L], groups=groups,
-        lower.tail=lower.tail, log.p=log.p, details=TRUE,
+        grouped_p, wn, prob=pn[1L], groups=groups,
+        lower.tail=grouped_lower_tail, log.p=grouped_log_p, details=TRUE,
         control=list(max_states=control$max_group_states,
                      max_iterations=control$max_iterations)), error=function(e) e)
       if (inherits(result, "error"))
