@@ -2,7 +2,7 @@
 
 **Version 0.2.0 adds randomized quantiles, including the original fair two-sided cutoffs `c_plus`, `c_minus`, and `tau`, to the same single R function.** Exact quantiles and the automatic minimum of applicable conservative bounds remain available with the original defaults.
 
-For independent random variables $\xi_i \sim \operatorname{Bernoulli}(\pi_i)$, the package computes quantiles of
+For independent random variables $\xi_i \sim \mathrm{Bernoulli}(\pi_i)$, the package computes quantiles of
 
 $$
 G = \sum_{i=1}^{B} w_i \xi_i,
