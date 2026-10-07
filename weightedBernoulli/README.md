@@ -27,7 +27,11 @@ After this folder has been uploaded to the repository `arun-kuchibhotla/weighted
 
 ```r
 install.packages("remotes")  # Once, if needed.
-remotes::install_github("arun-kuchibhotla/weightedBernoulli")
+
+remotes::install_github(
+  "Arun-Kuchibhotla/Weighted-Bernoulli",
+  subdir = "weightedBernoulli"
+)
 
 library(weightedBernoulli)
 ```
